@@ -241,13 +241,13 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 基础知识 </tag>
             
-            <tag> 神经网络 </tag>
+            <tag> 深度学习 </tag>
             
             <tag> 机器学习 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
@@ -272,11 +272,11 @@
       
         <tags>
             
+            <tag> 算法 </tag>
+            
             <tag> 基础知识 </tag>
             
             <tag> 图像处理 </tag>
-            
-            <tag> 算法 </tag>
             
         </tags>
       
@@ -405,9 +405,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 基础知识 </tag>
+            
+            <tag> 深度学习 </tag>
             
             <tag> 神经网络 </tag>
             
@@ -436,9 +436,9 @@
       
         <tags>
             
-            <tag> Pytorch </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> Pytorch </tag>
             
             <tag> C++ </tag>
             
