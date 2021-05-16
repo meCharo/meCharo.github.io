@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Conda本地镜像</title>
+      <link href="2019/12/05/conda-local-pkgs/"/>
+      <url>2019/12/05/conda-local-pkgs/</url>
+      
+        <content type="html"><![CDATA[<p>简介：有的时候网络不好，没有办法直接利用conda install安装，或者清华源中没有的包，且conda install经常失败，这个时候需要在本地制作conda镜像</p><span id="more"></span><h1 id="下载包"><a href="#下载包" class="headerlink" title="下载包"></a>下载包</h1><p>在 <a href="https://anaconda.org中搜索需要的包,直接利用下载工具下载即可/">https://anaconda.org中搜索需要的包，直接利用下载工具下载即可</a></p><h1 id="制作镜像"><a href="#制作镜像" class="headerlink" title="制作镜像"></a>制作镜像</h1><p>安装Conda build，MiniConda中没有该工具，但是AnaConda中有，直接用conda install 即可，然后，新建文件夹，使其构成如下目录格式</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./conda_temp/</span><br><span class="line">├── linux-64</span><br><span class="line">├── osx-64</span><br><span class="line">└── win-64</span><br></pre></td></tr></table></figure><p>注意，这个可以在<a href="https://anaconda.org/">https://anaconda.org</a> 随便搜一个包，查看都有哪些文件夹<br>cd到conda_temp/，运行命令conda index 即可<br><em>conda index中显示的包数量一定和你要加入的包数量一致，否则是失败的</em></p><h1 id="添加源"><a href="#添加源" class="headerlink" title="添加源"></a>添加源</h1><p>执行完成后，在~/.condarc中加入file://文件夹地址即可<br><img src="//images/condarc_mirr.png" class="lazyload" data-srcset="//images/condarc_mirr.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="condarc_mir"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Conda </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Conda </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Conda包搜索</title>
+      <link href="2019/12/05/conda-search-channel/"/>
+      <url>2019/12/05/conda-search-channel/</url>
+      
+        <content type="html"><![CDATA[<p>简介：在利用conda安装包的时候，经常会出现找不到包的情况，针对这种情况，可以根据下面的方案解决</p><span id="more"></span><h1 id="问题展示"><a href="#问题展示" class="headerlink" title="问题展示"></a>问题展示</h1><p><img src="//images/conda_mete_error.png" class="lazyload" data-srcset="//images/conda_mete_error.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="conda_mete_erro"><br>可以看到，有一个包名字为<code>xorg-libxrender</code>，版本为<code>0.9.10=h470a237_2</code>的没找到</p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>首先在<a href="https://anaconda.org/">https://anaconda.org</a> 中搜包名字，结果如图<br><img src="//images/search_result.png" class="lazyload" data-srcset="//images/search_result.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="search_result"><br>这个时候可能会有多个选项，这时随便选一个，比如第一个，然后在Files选项卡里找有没有匹配失败的包<br><img src="//images/search_name.png" class="lazyload" data-srcset="//images/search_name.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="search_name"><br>找到后，在conda选项卡中所给出的命令-c后面就是channel<br><img src="//images/conda_channel.png" class="lazyload" data-srcset="//images/conda_channel.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="conda_channe"><br>这里有3个都行，随便选一个加入~/.condarc中即可<br><img src="//images/condarc.png" class="lazyload" data-srcset="//images/condarc.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="condar"></p><h1 id="解决效果"><a href="#解决效果" class="headerlink" title="解决效果"></a>解决效果</h1><p>最后结果如图所示<br><img src="//images/result.png" class="lazyload" data-srcset="//images/result.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="result"><br>如果仍旧无法找到包，尝试把3个中的另外两个添加至~/.condarc即可</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Conda </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Conda </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>迭代最近点算法ICP</title>
+      <link href="2019/11/03/icp/"/>
+      <url>2019/11/03/icp/</url>
+      
+        <content type="html"><![CDATA[<p>简介：包含ICP的原理与实现</p><span id="more"></span><h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>迭代最近点算法(Iterative Closest Point, ICP)是将两组不同视角的点云映射到同一个坐标系下的算法，一般是以第一组点云为基本视角，将其他视角的点云转换至基本视角的坐标系下，这个过程也可以成为配准。</p><h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>ICP是根据两组点云的三维坐标来计算空间距离的，在最小化空间距离的过程中来回归旋转矩阵R和平移矩阵t的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图像处理1-图像中的EXIF</title>
+      <link href="2019/11/02/exif/"/>
+      <url>2019/11/02/exif/</url>
+      
+        <content type="html"><![CDATA[<p>简介：主要介绍了相机所拍摄的图像的文件信息</p><span id="more"></span><h1 id="EXIF"><a href="#EXIF" class="headerlink" title="EXIF"></a>EXIF</h1><p>可交换图像文件格式（英语：Exchangeable image file format，官方简称Exif），是专门为数码相机的照片设定的，可以记录数码照片的属性信息和拍摄数据。Exif可以附加于JPEG、TIFF、RIFF等文件之中，为其增加有关数码相机拍摄信息的内容和索引图或图像处理软件的版本信息。</p><h1 id="EXIF的读取"><a href="#EXIF的读取" class="headerlink" title="EXIF的读取"></a>EXIF的读取</h1><p>在EXIF中最重要的是焦距，图像分辨率信息，下面就会对这两个进行读取</p><h2 id="直接读取"><a href="#直接读取" class="headerlink" title="直接读取"></a>直接读取</h2><p><img src="//images/exif_information.png" class="lazyload" data-srcset="//images/exif_information.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="exif_information"><br>这里是直接cmd+i读取的图像，在More Info中可以看到图像拍摄时的EXIF信息。</p><h2 id="程序中读取"><a href="#程序中读取" class="headerlink" title="程序中读取"></a>程序中读取</h2><p>首先需要<code>pip install exifread</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> exifread</span><br><span class="line">image = <span class="built_in">open</span>(<span class="string">&quot;/Users/charo/Desktop/IMG_3525.jpg&quot;</span>, <span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">tags = exifread.process_file(image)</span><br><span class="line">focal_length = tags[<span class="string">&quot;EXIF FocalLength&quot;</span>].printable</span><br><span class="line"><span class="built_in">print</span>(focal_length)</span><br><span class="line">Output:</span><br><span class="line"><span class="number">399</span>/<span class="number">100</span></span><br></pre></td></tr></table></figure><p>这里是查看的焦距信息FocalLength，如果想查看有哪些变量，可以添加下面的代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> tag <span class="keyword">in</span> tags.keys():</span><br><span class="line">    <span class="built_in">print</span>(tag)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 图像处理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>remote-clion</title>
+      <link href="2019/10/27/remote-clion/"/>
+      <url>2019/10/27/remote-clion/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>相机相关的矩阵及理解</title>
+      <link href="2019/09/20/camera-matrix/"/>
+      <url>2019/09/20/camera-matrix/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><h1 id="矩阵类型"><a href="#矩阵类型" class="headerlink" title="矩阵类型"></a>矩阵类型</h1><p>内参矩阵——表示从相机坐标系到图像坐标系<br>外参矩阵——外参矩阵是世界坐标系到相机坐标系的变换<br>本质矩阵(本征矩阵)E——描述了空间中的点在两个坐标系中的坐标对应的关系<br>基础矩阵F——描述了空间中的点在两个像平面中的坐标对应的关系<br>单应矩阵H——描述物体在世界坐标系和像素坐标系之间的位置映射关系</p><h1 id="单应矩阵H"><a href="#单应矩阵H" class="headerlink" title="单应矩阵H"></a>单应矩阵H</h1><p>我们在这里引入一个新的概念：单应性（Homography）变换。可以简单的理解为它用来描述物体在世界坐标系和像素坐标系之间的位置映射关系。对应的变换矩阵称为单应性矩阵<br>如果图像没有畸变。焦距归一化之后，内参数矩阵变为单位矩阵，此时基础矩阵就是本征矩阵</p><h1 id="基础矩阵E"><a href="#基础矩阵E" class="headerlink" title="基础矩阵E"></a>基础矩阵E</h1><p>基础矩阵是对极几何的代数表达式，描绘了两张图中，对应点x&lt;−&gt;x’之间的约束关系<br>基础矩阵也不是满秩的矩阵，这和本征矩阵一样。基础矩阵可以通过7个独立的参数进行定义。假定其中3×3的F矩阵中最后一个（右下角）一个参数为1，那么可以使用8个匹配好的点对来进行参数估计。<br>基础矩阵也不是满秩的矩阵，这和本征矩阵一样。基础矩阵可以通过7个独立的参数进行定义。假定其中3×3的F矩阵中最后一个（右下角）一个参数为1，那么可以使用8个匹配好的点对来进行参数估计。</p><h1 id="本征矩阵"><a href="#本征矩阵" class="headerlink" title="本征矩阵"></a>本征矩阵</h1><p>本征矩阵的秩为2（不是满秩），因此理论上上述方程组有无数的可行解。本征矩阵在一个尺度上可以通过5个独立的参数定义，可以使用五点法来进行参数的估计。</p><h1 id="相机位姿估计"><a href="#相机位姿估计" class="headerlink" title="相机位姿估计"></a>相机位姿估计</h1><p>相机位姿估计是指给定若干图像，估计其中相机运动的问题。求解方法通常分特征点法和直接法两种。下面主要介绍特征点法。<br>特征点法的思路是先从图像当中提取许多特征，然后在图像间进行特征匹配，这样就得到许多匹配好的点，再根据这些点进行相机位姿的求解。根据传感器形式的不同，可以分成三种情况：</p><ul><li>2D-2D，单目相机获取的影像，只能获得像素坐标</li><li>3D-3D配对点，RGBD或双目相机，可以获取深度信息</li><li>3D-2D，已知一张图中的3D信息，另一张图只有2D信息</li></ul><p>可以是2D-2D(单目相机初始化时)，2D-3D配对点（单目相机运行过程中，已经算出了3D的地图点，又来了2D的图形），或是3D-3D的匹配点（使用双目相机、RGBD相机或其他传感器，可以直接过间接获取匹配好的三维点对）。本文讨论的主要是是基于2D-2D的配对点。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pycharm-shortcutkey</title>
+      <link href="2019/09/19/pycharm-shortcutkey/"/>
+      <url>2019/09/19/pycharm-shortcutkey/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><h1 id="代码折叠"><a href="#代码折叠" class="headerlink" title="代码折叠"></a>代码折叠</h1><p>cmd + shift + +<br>cmd + shift + -</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>c++-basic-private</title>
+      <link href="2019/09/19/c-basic-private/"/>
+      <url>2019/09/19/c-basic-private/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><p>c++<br>函数<br>PatchMatchController::PatchMatchController(const PatchMatchOptions&amp; options,<br>                                           const std::string&amp; workspace_path,<br>                                           const std::string&amp; workspace_format,<br>                                           const std::string&amp; pmvs_option_name)<br>    : options_(options),<br>      workspace_path_(workspace_path),<br>      workspace_format_(workspace_format),<br>      pmvs_option_name_(pmvs_option_name) {</p><p>}</p><p>目的就是把参数变成私有的</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>regretion</title>
+      <link href="2019/09/19/regretion/"/>
+      <url>2019/09/19/regretion/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><p>这一选择取决于你的类别之间是否互斥，例如，如果你有四个类别的音乐，分别为：古典音乐、乡村音乐、摇滚乐和爵士乐，那么你可以假设每个训练样本只会被打上一个标签（即：一首歌只能属于这四种音乐类型的其中一种），此时你应该使用类别数 k = 4 的softmax回归。（如果在你的数据集中，有的歌曲不属于以上四类的其中任何一类，那么你可以添加一个“其他类”，并将类别数 k 设为5。）<br>如果你的四个类别如下：人声音乐、舞曲、影视原声、流行歌曲，那么这些类别之间并不是互斥的。例如：一首歌曲可以来源于影视原声，同时也包含人声 。这种情况下，使用4个二分类的 logistic 回归分类器更为合适。这样，对于每个新的音乐作品 ，我们的算法可以分别判断它是否属于各个类别。     </p><p>现在我们来看一个计算视觉领域的例子，你的任务是将图像分到三个不同类别中。(i) 假设这三个类别分别是：室内场景、户外城区场景、户外荒野场景。你会使用sofmax回归还是 3个logistic 回归分类器呢？ (ii) 现在假设这三个类别分别是室内场景、黑白图片、包含人物的图片，你又会选择 softmax 回归还是多个 logistic 回归分类器呢？<br>在第一个例子中，三个类别是互斥的，因此更适于选择softmax回归分类器 。而在第二个例子中，建立三个独立的 logistic回归分类器更加合适。    为什么</p><p>我们事先并不知道这些类别之间的关系，而这样做默认了相近的整数的类是相似的，为什么第2类的左右分别是第1类和第3类，也许第2类跟第5类更为接近呢？</p><p>交叉墒<br>同理，我们希望：ANN在训练时，如果预测值与实际值的误差越大，那么在反向传播训练的过程中，各种参数调整的幅度就要更大，从而使训练更快收敛。然而，如果使用二次代价函数训练ANN，看到的实际效果是，如果误差越大，参数调整的幅度可能更小，训练更缓慢。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>编码</title>
+      <link href="2019/09/19/one-hot/"/>
+      <url>2019/09/19/one-hot/</url>
+      
+        <content type="html"><![CDATA[<p>简介：经常看到one-hot编码，所以集中解释下</p><span id="more"></span><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>One-Hot 编码是分类变量作为二进制向量的表示。这首先要求将分类值映射到整数值。然后，每个整数值被表示为二进制向量，除了整数的索引之外，它都是零值，它被标记为1。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>mvs基础</title>
+      <link href="2019/09/19/mvs-basic/"/>
+      <url>2019/09/19/mvs-basic/</url>
+      
+        <content type="html"><![CDATA[<p>简介：从整体上分析MVS方案的优与劣</p><span id="more"></span><h1 id="产生空洞的原因"><a href="#产生空洞的原因" class="headerlink" title="产生空洞的原因"></a>产生空洞的原因</h1><p>MVS方案的传统算法之所以容易出现空洞，主要原因是特征点分布不均匀，因此从特征点进行扩散的时候，就会导致部分点无法被扩散到，导致没有重建该部分区域。照片质量不佳的时候也会出现空洞，也是因为这种情况下，没有办法很好地提取特征。</p><h1 id="MVS分类"><a href="#MVS分类" class="headerlink" title="MVS分类"></a>MVS分类</h1><p>根据 S.Seitz[1]的分类方法，可以将多视图立体匹配的三维重建方法分为以下四类：<br>1）运用表面演化的方法<br>一般利用网格进行表面重构的方法叫做基于表面演化的方法。该方法采用的表面网格可以是三角形或者其他形状。初始的网格可以通过包围盒或者可视凸壳等获得。获取了初始结构以后再依据不同的准则收缩原始结构，从而得到目标的三维模型表面。由于收缩演化过程可能会造成栅格参数的自相交或者网格的拓扑结构变化，对此，Pons et al[2]等人提出了基于水平集的改进方法。<br>2) 运用体素的方法<br>体素类似平面图像上的像素，是三维空间分割的最小单位，这种方法先初始化了一个大体素的集合，然后依据不同的算法，按照不同的顺序遍历体素清除不符合要求的体素，保留的体素就是三维重建的最终模型。早期基于体素的方法都是基于颜色 和空间雕刻等方法实现的。由于早期方法在三维重建精确度水平比较低。G. Vogiatzis提出了通过图割的方法。图割方法的优点是对遮挡物具有很好的鲁棒性，缺点是由于体素结构不具有自适应性，还是无法得到高精度的重建结果。<br>3) 运用深度融合的方法<br>运用深度融合的方法以主要包含两个步骤：一是获得深度图：二是融合深度图得到三维重建模型。深度图中的每一个像素点的像素值都是依据真实空间点距离照相机的距离而计算出来的。</p><h1 id="朗伯反射曲面"><a href="#朗伯反射曲面" class="headerlink" title="朗伯反射曲面"></a>朗伯反射曲面</h1><p>针对朗伯反射曲面，可以使用光度立体重建法。这种方法先采集到多幅灰度图像在不同光照条件下的物体表面法线分布。再结合初始边界或者边界条件，就可以进行三维重建。Carlos Hernandez“等人就运用该思想出了一种三维重建的方法。</p><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1] A Comparison and Evaluation of Multi-View Stereo Reconstruction Algorithms<br>[2] Multi-View Stereo Reconstruction and Scene Flow Estimation with a Global Image-Based Matching Score</p><p>本文重点参考了《基于多视点图像三维重建算法的优化技术_姜宇航》</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 三维重建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 三维重建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>softmax</title>
+      <link href="2019/09/19/softmax/"/>
+      <url>2019/09/19/softmax/</url>
+      
+        <content type="html"><![CDATA[<p>简介：对softmax进行介绍与推导</p><span id="more"></span>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 基础知识 </tag>
+            
+            <tag> 神经网络 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>image_process_basic</title>
+      <link href="2019/09/18/image-process-basic/"/>
+      <url>2019/09/18/image-process-basic/</url>
+      
+        <content type="html"><![CDATA[<p>简介：记录在学习过程中，遇到的小知识点</p><span id="more"></span><h1 id="尺度不变性"><a href="#尺度不变性" class="headerlink" title="尺度不变性"></a>尺度不变性</h1><p>即便观察的部分是同一部分，但是由于尺度（类似于图像的放大，例如物体远，尺度小）不同，特征值不同——用高斯函数构造高斯空间，或者叫尺度空间（较远的模糊，近得清楚），就可以具有尺度不变性</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 基础知识 </tag>
+            
+            <tag> 图像处理 </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python知识点——collections模块</title>
+      <link href="2019/09/18/python-extra-point2/"/>
+      <url>2019/09/18/python-extra-point2/</url>
+      
+        <content type="html"><![CDATA[<p>简介：有时python的内置类型str, int, list, tuple, dict会无法满足要求，此时有模块提供使用</p><span id="more"></span><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>collections模块在这些内置数据类型的基础上，提供了几个额外的数据类型：</p><ul><li>namedtuple: 生成可以使用名字来访问元素内容的tuple子类</li><li>deque: 双端队列，可以快速的从另外一侧追加和推出对象</li><li>Counter: 计数器，主要用来计数</li><li>OrderedDict: 有序字典</li><li>defaultdict: 带有默认值的字典</li></ul><h1 id="使用情况"><a href="#使用情况" class="headerlink" title="使用情况"></a>使用情况</h1><ul><li>deque是list的一种，其区别是deque采用双边搜索，提高了搜索效率</li><li>OrderedDict是根据key的插入顺序进行记录的，而不是按照abc或者123来排序<h2 id="namedtuple"><a href="#namedtuple" class="headerlink" title="namedtuple"></a>namedtuple</h2>namedtuple可以用来表示某个东西的属性，比如说a是一个三维点，具有三个属性，分别为x,y,z的数值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">thD_point = collections.namedtuple(<span class="string">&#x27;thD_point&#x27;</span>, [<span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>, <span class="string">&#x27;z&#x27;</span>])</span><br><span class="line">a = thD_point(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;x: &#123;&#125;, y: &#123;&#125;, z: &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(a.x, a.y, a.z))</span><br><span class="line">Output: x: <span class="number">1</span>, y: <span class="number">2</span>, z: <span class="number">3</span></span><br></pre></td></tr></table></figure><h2 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h2>Counter一般用来记录字符串出现的次数，比如说，qweqweqwe，我们可以分别记录q、w、e的出现次数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str_ = <span class="string">&#x27;qweqweqwe&#x27;</span></span><br><span class="line">ct = collections.Counter(str_)</span><br><span class="line"><span class="built_in">print</span>(ct)</span><br><span class="line">Output: Counter(&#123;<span class="string">&#x27;q&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;e&#x27;</span>: <span class="number">3</span>&#125;)</span><br></pre></td></tr></table></figure>如果想要记录qwe的出现次数，则需要传入[‘qwe’, ‘qwe’, ‘qwe’]</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python知识点——变量前加*</title>
+      <link href="2019/09/16/python-extra-point/"/>
+      <url>2019/09/16/python-extra-point/</url>
+      
+        <content type="html"><![CDATA[<p>简介：针对有些Python中用到的，但是在学习过程中没遇到的几个小的知识点进行简单介绍</p><span id="more"></span><h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><p>在Python中可以在<em>list, tuple, dict或者numpy的矩阵</em>的变量前加入*号可以使将其拆开，例如</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">list_ = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">tuple_ = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">dict_ = &#123;<span class="string">&#x27;1&#x27;</span>: <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;2&#x27;</span>: <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;3&#x27;</span>: <span class="string">&#x27;c&#x27;</span>&#125;</span><br><span class="line">np_ = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(*list_)</span><br><span class="line">Output:<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(*tuple_)</span><br><span class="line">Output:<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(*dict_)</span><br><span class="line">Output:<span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(*np_)</span><br><span class="line">Output:<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ol><li>只拆一层，例如<code>*list_ = [[1, 2], [3, 4]]=&gt;[1, 2] [3, 4]</code></li><li>如果说zip是将对象打包，那么可以直接用*拆包</li><li>只有可迭代的变量才能拆包</li><li>被拆包后的变量不再是变量，不能赋值，也就是说不能进行<code>a = *b</code>的操作，但是可以作为参数传给其他函数，类似于*args</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>路由器配置</title>
+      <link href="2019/08/02/router-config/"/>
+      <url>2019/08/02/router-config/</url>
+      
+        <content type="html"><![CDATA[<p>简介：主要针对梅林系统路由器的开机启动问题</p><span id="more"></span><h1 id="完整策略"><a href="#完整策略" class="headerlink" title="完整策略"></a>完整策略</h1><p>梅林系统每次开机只会保留<code>/jeffs/</code>当中内容，所以<strong>一定</strong>要把自己想要运行的脚本放在该文件夹下。但是，由于路由器有点<strong>贵</strong>，所以建议单独插一个U盘把真正的执行文件放在U盘里，然后利用<code>/jeffs/</code>当中的脚本来执行一个U盘中的脚本，从而避免多次修改<code>/jeffs/</code>文件。也就是最终的执行策略如下：</p><ol><li>插入U盘</li><li>在U盘中创建脚本</li><li>在<code>/jeffs/</code>中创建或修改间接脚本文件，具体参考下面的<a href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E8%84%9A%E6%9C%AC">路由器脚本</a></li></ol><h1 id="路由器脚本"><a href="#路由器脚本" class="headerlink" title="路由器脚本"></a>路由器脚本</h1><p>关于梅林系统的脚本，官方给了一个说明</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">** User scripts **</span><br><span class="line">These are shell scripts that you can create, and which will be run when </span><br><span class="line">certain events occur.  Those scripts must be saved in /jffs/scripts/ ,</span><br><span class="line">so, JFFS must be enabled, as well as the option to use custom </span><br><span class="line">scripts and configs.  This can be configured under Administration -&gt; System.</span><br><span class="line">Available scripts:</span><br><span class="line"></span><br><span class="line">* ddns-start: Script called at the end of a DDNS update process.</span><br><span class="line">               This script is also called when setting the DDNS type</span><br><span class="line">               to &quot;Custom&quot;.  The script gets passed the WAN IP as </span><br><span class="line">               an argument.</span><br><span class="line">               When handling a &quot;Custom&quot; DDNS, this script is also</span><br><span class="line">               responsible for reporting the success or failure</span><br><span class="line">               of the update process.  See the Custom DDNS section</span><br><span class="line">               below for more information.</span><br><span class="line">* dhcpc-event: Called whenever a DHCP event occurs on the WAN </span><br><span class="line">                interface.  The type of event (bound, release, etc...) </span><br><span class="line">                is passed as an argument.</span><br><span class="line">* firewall-start: Firewall is started (filter rules have been applied)</span><br><span class="line">                   The WAN interface will be passed as argument (for </span><br><span class="line">                   example. &quot;eth0&quot;)</span><br><span class="line">* init-start: Right after jffs is mounted, before any of the services </span><br><span class="line">               get started</span><br><span class="line">* nat-start: nat rules (i.e. port forwards and such) have been applied </span><br><span class="line">              (nat table)</span><br><span class="line">* openvpn-event: Called whenever an OpenVPN server gets</span><br><span class="line">                  started/stopped, or an OpenVPN client connects to a</span><br><span class="line">                  remote server.  Uses the same syntax/parameters as</span><br><span class="line">                  the &quot;up&quot; and &quot;down&quot; scripts in OpenVPN.</span><br><span class="line">* post-mount: Just after a partition is mounted</span><br><span class="line">* pre-mount: Just before a partition is mounted.  Be careful with </span><br><span class="line">              this script.  This is run in a blocking call and will </span><br><span class="line">              block the mounting of the partition  for which it is </span><br><span class="line">              invoked till its execution is complete. This is done so  </span><br><span class="line">              that it can be used for things like running e2fsck on the </span><br><span class="line">              partition before mounting. This script is also passed the </span><br><span class="line">              device path being mounted as an argument which can be </span><br><span class="line">              used in the script using $1.</span><br><span class="line">* qos-start: Called after both the iptables rules and tc configuration </span><br><span class="line">              are completed for QoS.  This script will be passed an</span><br><span class="line">              argument, which will be &quot;init&quot; (when QoS is being</span><br><span class="line">              initialized and it has setup the tc classes) or</span><br><span class="line">              &quot;rules&quot; (when the iptables rules are being setup).</span><br><span class="line">* services-start: Initial service start at boot</span><br><span class="line">* services-stop: Services are stopped at shutdown/reboot</span><br><span class="line">* unmount: Just before unmounting a partition.  This is a blocking </span><br><span class="line">            script, so be careful with it.  The mount point is passed </span><br><span class="line">            as an argument to the script.</span><br><span class="line">* wan-start: WAN interface just came up (includes if it went down and </span><br><span class="line">              back up).  The WAN unit number will be passed as argument </span><br><span class="line">              (0 = primary WAN)</span><br><span class="line"></span><br><span class="line">Don&#x27;t forget to set them as executable:</span><br><span class="line"></span><br><span class="line">   chmod a+rx /jffs/scripts/*</span><br><span class="line"></span><br><span class="line">And like any Linux script, they need to start with a shebang:</span><br><span class="line"></span><br><span class="line">   #!/bin/sh</span><br></pre></td></tr></table></figure><p>根据这个说明，我们知道</p><ol><li>不存在的脚本可以自己创建</li><li>脚本文件是放在<code>/jffs/scripts/</code>下的</li><li>脚本文件是以<code>#!/bin/sh</code>开头的</li><li>脚本的权限为<code>chmod a+rx</code></li><li>如果要把真正的执行脚本放在U盘中，建议把间接脚本内容放在<code>post-mount</code>下</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 路由器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 梅林 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>英语语法——v与of和with</title>
+      <link href="2019/07/30/english-v-of-with/"/>
+      <url>2019/07/30/english-v-of-with/</url>
+      
+        <content type="html"><![CDATA[<p>简介：关于v与of和with的笔记，不过考虑到美国人也是根据感觉来选择介词，所以可能不需要分得很细，但是应该记住这种用法</p><span id="more"></span><h1 id="v-sb-of-sth"><a href="#v-sb-of-sth" class="headerlink" title="v.+sb.+of+sth."></a>v.+sb.+of+sth.</h1><p>这一类比较多，目前还不知道规律，可能所有动词都能这么用吧</p><table><thead><tr><th>单词</th><th align="center">意思</th><th align="right">例句</th></tr></thead><tbody><tr><td>deprive</td><td align="center">剥夺</td><td align="right">They deprived the criminal of his rights</td></tr><tr><td>cheat</td><td align="center">欺骗</td><td align="right">He has cheated me  (out) of my property</td></tr><tr><td>inform/notify</td><td align="center">通知</td><td align="right">I have informed/notified them of my arrival</td></tr><tr><td>remind</td><td align="center">提醒</td><td align="right">His story reminded me of my happy childhood</td></tr><tr><td>convince</td><td align="center">是确信</td><td align="right">I tried to convince them of my innocence</td></tr><tr><td>warn</td><td align="center">警告</td><td align="right">He warned me of/against pickpockets</td></tr><tr><td>suspect</td><td align="center">华怀疑</td><td align="right">They all suspected him of stealing</td></tr><tr><td>rid</td><td align="center">摆脱</td><td align="right">The dentist rid the man of his pain by pulling out the bad tooth</td></tr><tr><td>cure</td><td align="center">治疗</td><td align="right">This medicine can cure you of your cold</td></tr><tr><td>relieve</td><td align="center">缓解</td><td align="right">I can come to help relieve you of some of your housework</td></tr><tr><td>rob</td><td align="center">抢劫</td><td align="right">The robber robbed him of his money</td></tr><tr><td>clear</td><td align="center">清除</td><td align="right">The witness cleared me of my suspicion</td></tr><tr><td>tell</td><td align="center">告诉</td><td align="right">He told me of his trouble</td></tr><tr><td>persuade</td><td align="center">使信服</td><td align="right">He tried to persuade me of his honesty</td></tr><tr><td>break</td><td align="center">打破</td><td align="right">It’s not easy to break him of his old habit</td></tr><tr><td>accuse</td><td align="center">控诉</td><td align="right">He accused his boss of having broken his word</td></tr></tbody></table><p>这种语法和v.+sb.+with+sth.非常相似，例如charge是用charge with，例如They charged me with robbery</p><h1 id="v-sth-of-sb"><a href="#v-sth-of-sb" class="headerlink" title="v.+sth.+of+sb."></a>v.+sth.+of+sb.</h1><p>这一类比较少，常见的只有下面的几个。而且感觉更像当成名词用，表示xx的xx</p><table><thead><tr><th>单词</th><th align="center">意思</th><th align="right">例句</th></tr></thead><tbody><tr><td>demand</td><td align="center">要求</td><td align="right">All this teacher demanded of his students was silence in class</td></tr><tr><td>inquire</td><td align="center">询问</td><td align="right">I inquired the answer of him</td></tr><tr><td>require</td><td align="center">要求</td><td align="right">He has finished all that his parents require of him</td></tr><tr><td>expect</td><td align="center">期望</td><td align="right">The boys parents expect too much of him with the result that they are often disappointed</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> English </category>
+          
+          <category> verb </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> English </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习基础知识1——神经网络算法流程</title>
+      <link href="2019/07/29/deep-learning-basic/"/>
+      <url>2019/07/29/deep-learning-basic/</url>
+      
+        <content type="html"><![CDATA[<p>简介：本节主要对基本神经网络做介绍，并简单说明前向传递和反向传递的计算方法和作用</p><span id="more"></span><h1 id="总揽"><a href="#总揽" class="headerlink" title="总揽"></a>总揽</h1><p>神经网络是深度学习的基础，这主要是因为深度学习是一种神经层的层数非常多的一种神经网络。这些神经层可能是卷积层(Convolutional Layer)，也可能是全连接层(Fully Connected Layers, FC)。神经层全为卷基层的神经网络叫卷积神经网络(Convolutional Neural Networks, CNN)。<br><img src="//images/neural_networks.jpeg" class="lazyload" data-srcset="//images/neural_networks.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="neural_networks"><br><strong>对应到图上，输入与输出一般为全连接层且数量固定，而隐层可以根据需要增加。</strong>较为简单的全连接层是由多个神经元组成(后面神经层均指全连接层)，而神经元是由线性函数和非线性函数构成。这也就是为什么深度学习效果好了，主要是因为深度学习是线性函数和非线性函数的巧妙排列，所以理论上能够逼近任意函数。</p><h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><p>在总揽里提到，神经网络是由多个神经层构成，但是，实际上，神经网络算法还包括一些用来优化神经网络中的参数的优化算法，例如梯度下降算法(Gradient Descent，GD)等。神经网络算法的主要流程分为两个部分，首先为计算模型输出的前向传播过程和优化参数的反向传播过程。</p><h2 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h2><p>前向传播过程可以理解为利用算法模型求解输出的过程，在该过程中，算法模型的每个参数均为上一次的优化的参数，不发生改变。根据前面的介绍，可以知道，神经网络是由多个神经网络层组成，而每个神经网络层是由多个神经元组成，每个神经元是由线性函数和非线性函数组成，下面就先来说说线性函数和非线性函数是怎么组成神经元的。<br><img src="//images/cell.png" class="lazyload" data-srcset="//images/cell.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="cel"><br>根据上图，可以知道，输入首先每个输入$X$先与权重$W$相乘，加上偏置$b$，然后得到一个中间变量$z$，也就是说$z=WX+b$。这一部分是发生了线性变换。<br><img src="//images/sigmod.png" class="lazyload" data-srcset="//images/sigmod.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="sigmod"><br>最后对变量进行非线性变换得到该神经元的输出$h$，例如利用sigmod函数进行非线性变换的过程为$h=Sigmod(z)$，合起来就是$h=Sigmod(WX+b)$。这样，一个神经元就包含了线性函数，也包含了非线性函数。多个、多层神经元也就构成了神经网络。Sigmod函数如上图所示。<br><img src="//images/neural_networks.jpeg" class="lazyload" data-srcset="//images/neural_networks.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="neural_networks"><br>知道了神经网络的构成，其实前向传播的过程也就很清楚了。就像上图中说的那样，输入层完成对输入数据的采集，然后送入不同的神经元，也就是进行$h=Sigmod(WX+b)$运算，最后对每个神经元的输出再次进行$o=Sigmod(WH+b)$运算，得到模型输出。这个过程就是完整的前向传播过程，也就是根据输入计算模型输出的过程。</p><h2 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h2><p>神经网络算法的反向传播过程主要是网络参数的优化过程。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 基础知识 </tag>
+            
+            <tag> 神经网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pytorch与C++</title>
+      <link href="2019/05/27/pytorch-cpp/"/>
+      <url>2019/05/27/pytorch-cpp/</url>
+      
+        <content type="html"><![CDATA[<p>简介：在pytorch中调用cpp函数，并调用cuda进行并行计算，实现的功能为加法<br>pytorch版本：1.0及以后</p><span id="more"></span><p>利用pytorch中的cpp扩展包<code>cpp_extension</code>来辅助执行。</p><h1 id="pytorch调用cpp"><a href="#pytorch调用cpp" class="headerlink" title="pytorch调用cpp"></a>pytorch调用cpp</h1><p>首先创建需要用到的文件，最后得到目录结构为</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">├── cpp_ex</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── cpp_py.py</span><br><span class="line">│   └── csrc</span><br><span class="line">│       └── add.cpp</span><br><span class="line">└── main.py</span><br></pre></td></tr></table></figure><p>其中<em>main.py</em>为运行文件。<em>cpp_ex</em>是需要调用的文件的包，<em>main.py</em>通过调用<em>cpp_py.py</em>来实现对cpp文件<em>add.cpp</em>的调用，起到中介的作用。但是实际上可以在<em>main.py</em>中实现。这里是为了让结构更加清楚，将其分开了。</p><h2 id="非Tensor类型"><a href="#非Tensor类型" class="headerlink" title="非Tensor类型"></a>非Tensor类型</h2><p>从非Tensor类型入手的主要原因是</p><h3 id="add-cpp"><a href="#add-cpp" class="headerlink" title="add.cpp"></a>add.cpp</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;torch/extension.h&gt;</span><br><span class="line"></span><br><span class="line">int add(int a, int b)&#123;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) &#123;</span><br><span class="line">    m.def(&quot;add&quot;, &amp;add, &quot;add demo&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里主要做了三件事</p><ol><li>本例是利用pytorch调用cpp文件，所以导入*&lt;torch/extension.h&gt;*文件</li><li>定义add函数</li><li>利用pybind11将函数暴露出去，是py文件可以对其进行调用</li></ol><p><strong>pybind11是python与cpp文件互相调用的一个包，如果感兴趣可以查看<a href="https://pybind11.readthedocs.io/en/stable/basics.html">https://pybind11.readthedocs.io/en/stable/basics.html</a></strong></p><h3 id="cpp-py-py"><a href="#cpp-py-py" class="headerlink" title="cpp_py.py"></a>cpp_py.py</h3><p>这里为了介绍方便将<em>cpp_py.py</em>分成三个部分</p><ul><li>包的导入</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.utils.cpp_extension import load</span><br></pre></td></tr></table></figure><ul><li>cpp函数的导入</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def load_cpp_ext(exe_name):</span><br><span class="line">    root_dir = os.path.join(os.path.split(__file__)[0])</span><br><span class="line">    exe_csrc = os.path.join(root_dir, &quot;csrc&quot;)</span><br><span class="line">    exe_path = os.path.join(exe_csrc, &quot;_ext&quot;, exe_name)</span><br><span class="line">    os.makedirs(exe_path, exist_ok=True)</span><br><span class="line">    exe_sources = [</span><br><span class="line">        os.path.join(exe_csrc, &quot;&#123;&#125;.cpp&quot;.format(exe_name))</span><br><span class="line">    ]</span><br><span class="line">    exe = load(</span><br><span class="line">        name=exe_name,</span><br><span class="line">        sources=exe_sources</span><br><span class="line">    )</span><br><span class="line">    return exe</span><br><span class="line">    </span><br><span class="line">_add = load_cpp_ext(&#x27;add&#x27;)</span><br></pre></td></tr></table></figure><p>在这一步主要是调用load函数，从cpp文件中得到一个py可以执行的函数。所以，进行的操作大多是文件检索。值得一提的是，name是cpp文件生成的可执行文件名，也是py文件调用的函数名，注意保持一致。同时，load还可以传入其他与包编译相关的参数，这个在后面会提到。</p><ul><li>利用pytorch使py文件可以调用</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Add(nn.Module):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        super(Add, self).__init__()</span><br><span class="line"></span><br><span class="line">    def forward(self, x, y):</span><br><span class="line">        z = _add.add(x, y)</span><br><span class="line">        return z</span><br></pre></td></tr></table></figure><p>利用pytorch对add函数进行调用的方式和定义模型一样</p><h3 id="main-py"><a href="#main-py" class="headerlink" title="main.py"></a>main.py</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from cpp_ex.cpp_demo import Add</span><br><span class="line"></span><br><span class="line">a = 1</span><br><span class="line">b = 2</span><br><span class="line">add_func = Add()</span><br><span class="line">c = add_func(a, b)</span><br><span class="line"></span><br><span class="line">print(c)</span><br><span class="line"></span><br><span class="line">Output:0</span><br></pre></td></tr></table></figure><p>直接调用即可</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> Pytorch </tag>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux 常用命令</title>
+      <link href="2019/05/22/linux-command/"/>
+      <url>2019/05/22/linux-command/</url>
+      
+        <content type="html"><![CDATA[<p>简介: 主要包括在linux中的常用命令</p><span id="more"></span><h1 id="查看当前目录文件名ls"><a href="#查看当前目录文件名ls" class="headerlink" title="查看当前目录文件名ls"></a>查看当前目录文件名ls</h1><p>首先在命令行中输入<code>ls -l</code>，得到结果如下：</p><h2 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h2><p>第一列 包含文件的类型，所有者，所属组以及其他用户对该文件的权限。</p><p>其中第1位用来描述该文件的类型。我们看到这里的文件类型是l，其实除了这个还有，b,c,s,d,-等等。 </p><ul><li>d 代表该文件是目录 </li><li>-代表该文件是普通文件 </li><li>l 代表该文件是链接文件 </li><li>b代表该文件是快设备，比如/dev/sda就是这样的文件，磁盘分区文件就是这种类型。 </li><li>c 代表该文件是串行端口设备文件(又称字符设备文件)，比如键盘，鼠标，打印机，tty终端等都是这样的文件。 </li><li>s 代表该文件为套接字文件(socket)，用于进程之间的通信。</li></ul><p>**从第二列开始没3列一组，表示不同的</p><h2 id="第二组"><a href="#第二组" class="headerlink" title="第二组"></a>第二组</h2><p>表示该文件占用的字节(inode)，如果是目录，那这个数值与该目录下是子目录数量有关。</p><h2 id="第三组"><a href="#第三组" class="headerlink" title="第三组"></a>第三组</h2><p>表示该文件的所有者</p><h2 id="第四组"><a href="#第四组" class="headerlink" title="第四组"></a>第四组</h2><p>表示该文件的所属组</p><h2 id="第五组"><a href="#第五组" class="headerlink" title="第五组"></a>第五组</h2><p>表示该文件的大小。</p><h2 id="第六组"><a href="#第六组" class="headerlink" title="第六组"></a>第六组</h2><p>表示该文件最后一次被修改的时间，依次为月份，日期以及时间。</p><h2 id="第七组"><a href="#第七组" class="headerlink" title="第七组"></a>第七组</h2><p>表示该文件最后一次被修改的时间，依次为月份，日期以及时间。</p><h2 id="第八组"><a href="#第八组" class="headerlink" title="第八组"></a>第八组</h2><p>表示该文件最后一次被修改的时间，依次为月份，日期以及时间。</p><h2 id="第九组"><a href="#第九组" class="headerlink" title="第九组"></a>第九组</h2><p>表示文件名。</p><h1 id="权限修改命令chmod"><a href="#权限修改命令chmod" class="headerlink" title="权限修改命令chmod"></a>权限修改命令chmod</h1><p>通过chmod可以修改文件或命令的权限<br>chmod的命令有符号方式与<br>命令格式：chmod [-R] {u|g|o|a}{+|-|=}{r|w|x} filename </p><p>u (user)   表示用户本人。 </p><p>g (group)  表示同组用户。 </p><p>o (oher)   表示其他用户。 </p><p>a (all)    表示所有用户。 </p><p>+ 用于给予指定用户的许可权限。 </p><p>- 用于取消指定用户的许可权限。 </p><p>= 将所许可的权限赋给文件。 </p><p>r (read)   读许可，表示可以拷贝该文件或目录的内容。 </p><p>w (write)  写许可，表示可以修改该文件或目录的内容。 </p><p>x (execute)执行许可，表示可以执行该文件或进入目录。 </p><p>命令参数<br>-R 选项的作用等同于chown命令的-R选项，也表示级联更改。</p><p>命令描述<br>命令chmod(change mode)用于改变用户对文件/目录的读写执行权限。</p><p><strong>{}花括号用来匹配一组用逗号分隔的字符串中的任一个</strong></p><h1 id="查看文件大小du"><a href="#查看文件大小du" class="headerlink" title="查看文件大小du"></a>查看文件大小du</h1><p>du [选项][文件]</p><p>du -h 显示当前文件夹的总容量</p><p>du -h –max-depth=0</p><p>仅使用 -h参数项时，du 会自动过滤掉所有的文件，只搜索文件夹。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 常用命令 </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python的环境配置</title>
+      <link href="2019/05/17/python-config/"/>
+      <url>2019/05/17/python-config/</url>
+      
+        <content type="html"><![CDATA[<p>简介: 主要包括与python相关的环境配置，不包括python安装</p><span id="more"></span><h1 id="Python环境搭建"><a href="#Python环境搭建" class="headerlink" title="Python环境搭建"></a>Python环境搭建</h1><p>一般的环境只需要安装anaconda或者miniconda，利用conda创建python环境即可，下面主要是系统编译时默认使用的python，可以不修改，但是有的时候会出现问题</p><h2 id="软连接"><a href="#软连接" class="headerlink" title="软连接"></a>软连接</h2><p>不需要将文件复制到**/usr/bin/**下，只需要修改软连接即可。</p><h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>如果软文件存在，则无法直接创建软连接，所以需要对其先进行删除</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/bin/</span><br><span class="line">sudo rm python python2 python3</span><br></pre></td></tr></table></figure><h3 id="创建新的软连接"><a href="#创建新的软连接" class="headerlink" title="创建新的软连接"></a>创建新的软连接</h3><p>利用如下指令，分别创建软连接，其中python根据需要确定软连接到python2还是python3</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s 源文件地址 目标文件地址</span><br></pre></td></tr></table></figure><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>其他的与python有关的还有**/usr/bin/<strong>下的</strong>python python2 python2.7 python2-config python2.7-config pydoc pydoc2 python python3 python3.6 python3.6m python3.6-config pydoc3 python3-config**等</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 基本配置 </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>服务器常用命令</title>
+      <link href="2019/04/22/server-command/"/>
+      <url>2019/04/22/server-command/</url>
+      
+        <content type="html"><![CDATA[<p>内容：与服务器交互的常用命令</p><span id="more"></span><h1 id="复制命令scp"><a href="#复制命令scp" class="headerlink" title="复制命令scp"></a>复制命令scp</h1><h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><p><code>scp upload_file user_name@ip:target_dir</code><br>upload_file: 要上传的文件<br>user_name: 服务器登录用户<br>ip: 服务器ip地址或域名</p><h2 id="复制文件夹"><a href="#复制文件夹" class="headerlink" title="复制文件夹"></a>复制文件夹</h2><p><code>scp -r folder_name user_name@ip:target_dir</code><br>folder_name: 文件夹名<br>-r: 表示迭代整个文件夹</p><h2 id="指定端口"><a href="#指定端口" class="headerlink" title="指定端口"></a>指定端口</h2><p><code>scp -P port -r folder_name user_name@ip:target_dir</code><br>-P: 指定端口参数<br>port: 端口号</p><h1 id="终端切换screen"><a href="#终端切换screen" class="headerlink" title="终端切换screen"></a>终端切换screen</h1><p>在利用命令行对服务器的操作过程中，一旦连接中断，正在运行的命令也会停止。为了防止进程中断，可以利用screen创建session使终端后台运行。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>screen是基本工具，所以利用系统提供的包管理工具即可。例如Ubuntu下利用apt-get进行安装。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install screen</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>创建作业：<code>screen [要执行的任务]</code><br>指定作业名称：<code>screen -S &lt;作业名称&gt; [要执行的任务]</code><br>查看离线作业：<code>screen -ls</code><br><img src="http://charo-blog.test.upcdn.net/2019/07/screen.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/screen.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="screen"><br><strong>其中74155是session id，demo是作业名称</strong><br>恢复离线作业：<code>screen -r &lt;作业名称/session id&gt;</code><br>杀死一个已经detached会话session：<code>screen -X -S &lt;作业名称/session id&gt; quit</code><br>detach正在执行的session：<code>同时按下ctrl+a与d</code><br><strong>[]表示可以没有</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> 常用命令 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux 基本配置</title>
+      <link href="2019/04/20/linux-configuration/"/>
+      <url>2019/04/20/linux-configuration/</url>
+      
+        <content type="html"><![CDATA[<p>简介：给出常规步骤，并在Arch Linux中进行测试<br>系统：Arch Linux<br>内容对象：服务器</p><span id="more"></span><h1 id="vnc配置"><a href="#vnc配置" class="headerlink" title="vnc配置"></a>vnc配置</h1><h2 id="安装TigerVNC"><a href="#安装TigerVNC" class="headerlink" title="安装TigerVNC"></a>安装TigerVNC</h2><p>在命令行中输入<code>pacman -S TigerVNC</code>。<strong>安装方式由于系统不同而不同，例如ubuntu为</strong><code>sudo apt-get install TigerVNC</code></p><h2 id="初始化vnc"><a href="#初始化vnc" class="headerlink" title="初始化vnc"></a>初始化vnc</h2><p>在命令行中输入<code>vncserver</code>，第一次创建vnc，需要输入密码<img src="http://ppf32wlz8.bkt.clouddn.com/2019_04_20/vnc_create.jpg" class="lazyload" data-srcset="http://ppf32wlz8.bkt.clouddn.com/2019_04_20/vnc_create.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="vnc_create"><br><strong>注意命令行输出的信息，这里包括了端口号</strong> 如果想重置密码只需要将<code>rm -rf ~/.vnc</code>文件夹删除即可</p><h2 id="修改启动文件"><a href="#修改启动文件" class="headerlink" title="修改启动文件"></a>修改启动文件</h2><ol><li>在命令行中输入<code>vi ~/.vnc/xstartup</code>，对vnc的启动配置文件进行修改，<strong>vi可以替换成替他文本编辑器</strong></li><li>修改其中的全部内容，确保只有下面文本的有效```<br> #!/bin/sh<h1 id="key-modify"><a href="#key-modify" class="headerlink" title="key modify"></a>key modify</h1> export XKL_XMODMAP_DISABLE=1<br> unset SESSION_MANAGER<br> unset DBUS_SESSION_BUS_ADDRESS<br> exec dbus-launch gnome-session<br> #exec gnome-session <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    `unset DBUS_SESSION_BUS_ADDRESS`**的作用是将变量清除，并强制新建并初始化一个总线运行vnc**</span><br><span class="line">`exec dbus-launch gnome-session`**本命令表示使用gnome-session运行vnc，也就是vnc中显示的桌面环境是gnome，也可以使用**`exec gnome-session`**代替**</span><br><span class="line">    </span><br><span class="line">## 停止正在运行的vnc</span><br><span class="line">* 一般情况下，在命令行输入`vncserver -kill :端口号`即可，上图中端口号为1，所以在命令行中输入`vncserver -kill :1`，**注意在-kill与:1之间有空格**</span><br><span class="line"></span><br><span class="line">## 配置vnc</span><br><span class="line">* 可以通过创建`~/.vnc/config`配置vnc，例如分辨率</span><br></pre></td></tr></table></figure><h2 id="Supported-server-options-to-pass-to-vncserver-upon-invocation-can-be-listed"><a href="#Supported-server-options-to-pass-to-vncserver-upon-invocation-can-be-listed" class="headerlink" title="Supported server options to pass to vncserver upon invocation can be listed"></a>Supported server options to pass to vncserver upon invocation can be listed</h2><h2 id="in-this-file-See-the-following-manpages-for-more-vncserver-1-Xvnc-1"><a href="#in-this-file-See-the-following-manpages-for-more-vncserver-1-Xvnc-1" class="headerlink" title="in this file. See the following manpages for more: vncserver(1) Xvnc(1)."></a>in this file. See the following manpages for more: vncserver(1) Xvnc(1).</h2><h2 id="Several-common-ones-are-shown-below-Uncomment-and-modify-to-your-liking"><a href="#Several-common-ones-are-shown-below-Uncomment-and-modify-to-your-liking" class="headerlink" title="Several common ones are shown below. Uncomment and modify to your liking."></a>Several common ones are shown below. Uncomment and modify to your liking.</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>geometry=1440x900<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">**geometry表示分辨率，这里配置的为1440x900**</span><br><span class="line"></span><br><span class="line">## 启动vnc</span><br><span class="line">* 在命令行中输入`vncserver`，得到端口号</span><br><span class="line">* 在Vnc Viewer中输入ip:端口号，然后输入密码即可显示vnc桌面![vnc_ip](http://ppf32wlz8.bkt.clouddn.com/2019_04_20/vnc_ip.png)**真正的端口号为5901，这里的1表示vnc的端口**</span><br><span class="line"></span><br><span class="line"># 免密登陆</span><br><span class="line">## ssh密钥的生成</span><br><span class="line">直接利用下述命令生成即可。</span><br><span class="line">``` bash</span><br><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>这个命令会在～/.ssh/下面生成<h2 id="密钥复制"><a href="#密钥复制" class="headerlink" title="密钥复制"></a>密钥复制</h2>利用下述命令将本地的公钥复制到远程的机器上，然后就可以免密登录，复制文件了。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id 本地文件 用户名@远程机器IP地址</span><br></pre></td></tr></table></figure>例如<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id ~/.ssh/id_rsa.pub admin@192.168.2.3</span><br><span class="line">ssh-copy-id admin@192.168.2.3</span><br></pre></td></tr></table></figure>然后文件会被复制到IP地址为192.168.2.3的机器的/home/admin/.ssh/authorized_key中</li></ol><p><em>注意：有的ssh-copy-id版本命令只需要用户名@远程机器IP地址即可</em></p><h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>git是一种分布式的版本控制系统，能够较为方便地对文件版本进行管理，简单来说是一个记录着文件修改情况的管理系统。</p><h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><p>git的安装相对较为简单，大多数源都有收录，直接安装即可。<strong>Ubuntu系统可以使用apt-get install git安装</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S git</span><br></pre></td></tr></table></figure><p>git安装完成后，需要进行用户配置</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;用户名&quot;</span></span><br><span class="line">git config --global user.mail <span class="string">&quot;邮箱&quot;</span></span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>配置查看：<code>git config --list</code></p><h1 id="虚拟内存配置"><a href="#虚拟内存配置" class="headerlink" title="虚拟内存配置"></a>虚拟内存配置</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>虚拟内存(Swap)是为了临时提高计算机的内存而做的处理，但是由于虚拟内存占用硬盘空间，所以，速度较慢，一般是内存占满了，系统才会自动征用虚拟内存。</p><h2 id="虚拟内存的创建"><a href="#虚拟内存的创建" class="headerlink" title="虚拟内存的创建"></a>虚拟内存的创建</h2><p>首先使用dd命令创建一个虚拟内存文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/home/charo/swap bs=1M count=具体大小</span><br></pre></td></tr></table></figure><p>其中，if(input_file)是为输入文件的绝对路径，of(output_file)命令为输出文件的绝对路径，bs是block_size大小，count是bs的个数。**/dev/zero文件是swap空间的一个模版文件，bs与count确定swap空间的大小**</p><h2 id="虚拟内存文件的格式化"><a href="#虚拟内存文件的格式化" class="headerlink" title="虚拟内存文件的格式化"></a>虚拟内存文件的格式化</h2><p>这里就像格式化硬盘分区一样，对swap文件进行格式化，利用mkswap完成格式化操作</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /home/charo/swap</span><br></pre></td></tr></table></figure><p>等待完成即可。</p><h2 id="虚拟内存激活"><a href="#虚拟内存激活" class="headerlink" title="虚拟内存激活"></a>虚拟内存激活</h2><p>使用swapon命令可以启用swap文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /home/charo/swap</span><br></pre></td></tr></table></figure><h2 id="虚拟内存开机启动-可选"><a href="#虚拟内存开机启动-可选" class="headerlink" title="虚拟内存开机启动(可选)"></a>虚拟内存开机启动(可选)</h2><p>在/etc/fstab文件中加入如下命令：<code>/home/charo/swap swap swap defaults 0 0</code>，然后重启即可</p><h2 id="虚拟内存删除"><a href="#虚拟内存删除" class="headerlink" title="虚拟内存删除"></a>虚拟内存删除</h2><ol><li>如果设置了开机启动，则需要去除/etc/fstab中的swap分区</li><li>停用swap文件<code>swapoff /home/charo/swap</code></li><li>将swap文件删除<code>rm -rf /home/charo/swap</code></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 基本配置 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>macOS常用工具安装与使用</title>
+      <link href="2018/03/20/macOS-tools/"/>
+      <url>2018/03/20/macOS-tools/</url>
+      
+        <content type="html"><![CDATA[<p>系统：macOS<br>简介：记录一些常用的MacOS工具</p><span id="more"></span><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><img src="http://charo-blog.test.upcdn.net/2019/07/homebrew.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/homebrew.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="homebrew"><br>Homebrew是macOS平台的一款包管理工具，具有安装、卸载、环境配置等功能，类似于arch Linux中的pacman和Ubuntu中的apt-get。由于Homebrew的存在，使得macOS的使用更加便利。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Xcode安装"><a href="#Xcode安装" class="headerlink" title="Xcode安装"></a>Xcode安装</h3><p>由于依赖于<code>Xcode</code>，所以需要先安装Xcode，具体安装方式为在<code>App Store</code>中搜索<code>Xcode</code>，然后安装即可。</p><p>据说Homebrew只依赖<code>Xcode Command Line Tools</code>，所以只需要执行下面的一条命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure><p>参考: <a href="https://segmentfault.com/a/1190000014541169">Homebrew</a></p><h3 id="Homebrew安装"><a href="#Homebrew安装" class="headerlink" title="Homebrew安装"></a>Homebrew安装</h3><p>Homebrew的安装相对较为简单，只需要在命令行中执行下面的命令即可。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure><h2 id="Homebrew的常用命令"><a href="#Homebrew的常用命令" class="headerlink" title="Homebrew的常用命令"></a>Homebrew的常用命令</h2><p>包的查询：<code>brew search &lt;packageName&gt;</code><br>包的安装：<code>brew install &lt;packageName&gt;</code><br>包的卸载：<code>brew uninstall &lt;packageName&gt;</code><br>包的源查询：<code>brew tap</code><br>包源的添加：<code>brew tap &lt;user&gt;/&lt;repo&gt;</code><br>包源的删除：<code>brew untap &lt;user&gt;/&lt;repo&gt;</code></p><h3 id="常用的包源"><a href="#常用的包源" class="headerlink" title="常用的包源"></a>常用的包源</h3><p>老版本java的包源：<code>caskroom/versions</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常用工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+            <tag> 常用工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>博客创建</title>
+      <link href="2018/03/19/create-blog/"/>
+      <url>2018/03/19/create-blog/</url>
+      
+        <content type="html"><![CDATA[<p>系统：macOS<br>静态网页框架：Hexo<br>云主机选择：GitHub</p><span id="more"></span><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="包管理工具安装Homebrew"><a href="#包管理工具安装Homebrew" class="headerlink" title="包管理工具安装Homebrew"></a>包管理工具安装Homebrew</h2><p>具体可以参考<a href="/2018/03/macOS-tools#包管理工具" target="_blank">Homebrew的安装</a></p><h2 id="node-js安装"><a href="#node-js安装" class="headerlink" title="node.js安装"></a>node.js安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure><h2 id="Hexo的安装"><a href="#Hexo的安装" class="headerlink" title="Hexo的安装"></a>Hexo的安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure><p><strong>因为需要/usr/lib/等文件夹的权限，所以用sudo执行</strong><br>更多信息: <a href="https://hexo.io/">Hexo</a></p><h1 id="博客创建"><a href="#博客创建" class="headerlink" title="博客创建"></a>博客创建</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>进入到博客的安放位置，然后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init your_blog_name</span><br></pre></td></tr></table></figure><p><strong>该命令会创建一个your_blog_name的文件夹，并在文件夹内下在需要的东西。</strong>完成创建后，利用cd命令进入your_blog_name文件夹，然后在本地查看博客效果</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> your_blog_name</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure><p>也可以简写为<code>hexo s</code>，然后在浏览器中命令行中出现的地址，即可查看博客的默认效果</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4000/</span><br></pre></td></tr></table></figure><p><strong>按下ctrl+c即可退出</strong><br>最终能得到下面的效果图，表示成功<br><img src="http://charo-blog.test.upcdn.net/2019/07/init_window.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/init_window.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="init_windo"><br>更多信息: <a href="https://hexo.io/">Hexo</a></p><h2 id="博客上传"><a href="#博客上传" class="headerlink" title="博客上传"></a>博客上传</h2><h3 id="密钥创建"><a href="#密钥创建" class="headerlink" title="密钥创建"></a>密钥创建</h3><p>具体可以参考<a href="/2018/03/linux-configuration#免密登陆" target="_blank">免密登陆</a></p><h3 id="GitHub新建repository"><a href="#GitHub新建repository" class="headerlink" title="GitHub新建repository"></a>GitHub新建repository</h3><p>登陆GitHub账号，点击右上角头像左边的加号，选择new repository<br><img src="http://charo-blog.test.upcdn.net/2019/07/new_rep.jpg" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/new_rep.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="new_rep"><br>在Owner处输入GitHub用户名，在Repository name处输入XXX.github.io。<strong>XXX与GitHub用户名要一致，也要和Owner里面的名字相同</strong><br><img src="http://charo-blog.test.upcdn.net/2019/07/rep_name.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/rep_name.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="rep_name"><br>点击create repository，完成repository创建。</p><h3 id="免密上传配置"><a href="#免密上传配置" class="headerlink" title="免密上传配置"></a>免密上传配置</h3><p>利用下述命令查看生成的密钥</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><p>点击头像，选择setting，对GitHub进行配置<br><img src="http://charo-blog.test.upcdn.net/2019/07/ssh.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/ssh.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="ssh"><br>在左边的目录框中选择SSH and GPG keys，然后点击new SSH key<br><img src="http://charo-blog.test.upcdn.net/2019/07/new_ssh_key.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/new_ssh_key.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="new_ssh_key"><br>将密钥复制到刚才尚未填写key中，Title可任意填写。填写完成后，检查是否通过ssh密钥能否连接到Github。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>如果显示输出出现了你的GitHub用户名，那么ssh密钥设置成功。</p><h3 id="上传插件安装"><a href="#上传插件安装" class="headerlink" title="上传插件安装"></a>上传插件安装</h3><p>为了简化上传步骤，我们需要下载一个Hexo的git插件。在安装插件前，确保在your_blog_name文件夹内，然后再进行插件的安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>插件安装完成后，对your_blog_name/_config.yml进行相关配置</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">XXX</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p>根据上面的代码提示，可以知道现在需要获取repo的名字，点击头像，选择your profile<br><img src="http://charo-blog.test.upcdn.net/2019/07/get_rep.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/get_rep.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="get_rep"><br>在Popular repositories 中点击刚刚创建的XXX.github.io<br><img src="http://charo-blog.test.upcdn.net/2019/07/pop_rep.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/pop_rep.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="pop_rep"><br>在code选项卡中，选择SSH选项，点击右边的复制，将git指令填在XXX的位置上<br><img src="http://charo-blog.test.upcdn.net/2019/07/rep_ssh.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/2019/07/rep_ssh.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="rep_ssh"></p><p>最后得到</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:meCharo/safasfd.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p><strong>注意：type、repo、branch前面均有两个空格。</strong>若需要同时上传至多个repo，配置如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">  repo: XXX</span><br><span class="line">  branch: master</span><br><span class="line">- type: git</span><br><span class="line">  repo: XXX</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>完成配置后，对博客上传功能进行测试</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">可以简化成</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>等待上传完成，刷新页面，在浏览器的地址栏中输入下面的地址即可查看效果</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XXX.github.io</span><br></pre></td></tr></table></figure><h1 id="hexo主题更改"><a href="#hexo主题更改" class="headerlink" title="hexo主题更改"></a>hexo主题更改</h1><p>在<a href="https://hexo.io/themes/">Hexo主题</a>找到喜欢的主题，下载到themes文件夹内，然后修改_config.yml文件中的主题一栏</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: 新主题的名字</span><br></pre></td></tr></table></figure><p>建议查看主题的使用说明，以避免插件不全而导致主体失效。<strong>注意：上传时先清空缓存，再重建上传</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></table></figure><p><strong>g表示generate，生成静态文件，然后-d上传</strong></p><p>更多信息: <a href="https://www.bilibili.com/video/av12892750/?t=110">本文部分参考该视频</a></p><h1 id="README-md文件的创建"><a href="#README-md文件的创建" class="headerlink" title="README.md文件的创建"></a>README.md文件的创建</h1><ol><li>在source下创建README.md</li><li>在_config.yml的skip_render关键字后加入README.md</li></ol><p><strong>注意空格</strong><br>如果不加入skip_render，执行 hexo g -d 部署博客的时候会发现README.md变成README.html</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: README.md</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

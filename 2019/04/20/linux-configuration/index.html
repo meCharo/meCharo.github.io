@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -26,9 +22,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Charo Blog</title>
+  <title>linux 基本配置 - Charo Blog</title>
+  
+    <meta name="keywords" content="Linux,基本配置">
   
 
+  
+    <meta name="description" content="简介：给出常规步骤，并在Arch Linux中进行测试系统：Arch Linux内容对象：服务器">
   
 
   <!-- feed -->
@@ -106,7 +106,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -345,7 +345,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -390,7 +390,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 </div>
 
-          <div id="scroll-down" style="display: ;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
@@ -401,547 +401,313 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
+    
+      <h1 class="title">
+        linux 基本配置
+      </h1>
+      <div class='new-meta-box'>
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/12/05/conda-local-pkgs/">
-        Conda本地镜像
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：有的时候网络不好，没有办法直接利用conda install安装，或者清华源中没有的包，且conda install经常失败，这个时候需要在本地制作conda镜像</p>
-    
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Linux/">Linux</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2019-12-05</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年4月20日</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Conda/">Conda</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="linux 基本配置" data-path="/2019/04/20/linux-configuration/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>简介：给出常规步骤，并在Arch Linux中进行测试<br>系统：Arch Linux<br>内容对象：服务器</p>
+<span id="more"></span>
+
+<h1 id="vnc配置"><a href="#vnc配置" class="headerlink" title="vnc配置"></a>vnc配置</h1><h2 id="安装TigerVNC"><a href="#安装TigerVNC" class="headerlink" title="安装TigerVNC"></a>安装TigerVNC</h2><p>在命令行中输入<code>pacman -S TigerVNC</code>。<strong>安装方式由于系统不同而不同，例如ubuntu为</strong><code>sudo apt-get install TigerVNC</code></p>
+<h2 id="初始化vnc"><a href="#初始化vnc" class="headerlink" title="初始化vnc"></a>初始化vnc</h2><p>在命令行中输入<code>vncserver</code>，第一次创建vnc，需要输入密码<img src="http://ppf32wlz8.bkt.clouddn.com/2019_04_20/vnc_create.jpg" class="lazyload" data-srcset="http://ppf32wlz8.bkt.clouddn.com/2019_04_20/vnc_create.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="vnc_create"><br><strong>注意命令行输出的信息，这里包括了端口号</strong> 如果想重置密码只需要将<code>rm -rf ~/.vnc</code>文件夹删除即可</p>
+<h2 id="修改启动文件"><a href="#修改启动文件" class="headerlink" title="修改启动文件"></a>修改启动文件</h2><ol>
+<li>在命令行中输入<code>vi ~/.vnc/xstartup</code>，对vnc的启动配置文件进行修改，<strong>vi可以替换成替他文本编辑器</strong></li>
+<li>修改其中的全部内容，确保只有下面文本的有效```<br> #!/bin/sh<h1 id="key-modify"><a href="#key-modify" class="headerlink" title="key modify"></a>key modify</h1> export XKL_XMODMAP_DISABLE=1<br> unset SESSION_MANAGER<br> unset DBUS_SESSION_BUS_ADDRESS<br> exec dbus-launch gnome-session<br> #exec gnome-session <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    `unset DBUS_SESSION_BUS_ADDRESS`**的作用是将变量清除，并强制新建并初始化一个总线运行vnc**</span><br><span class="line">`exec dbus-launch gnome-session`**本命令表示使用gnome-session运行vnc，也就是vnc中显示的桌面环境是gnome，也可以使用**`exec gnome-session`**代替**</span><br><span class="line">    </span><br><span class="line">## 停止正在运行的vnc</span><br><span class="line">* 一般情况下，在命令行输入`vncserver -kill :端口号`即可，上图中端口号为1，所以在命令行中输入`vncserver -kill :1`，**注意在-kill与:1之间有空格**</span><br><span class="line"></span><br><span class="line">## 配置vnc</span><br><span class="line">* 可以通过创建`~/.vnc/config`配置vnc，例如分辨率</span><br></pre></td></tr></table></figure>
+<h2 id="Supported-server-options-to-pass-to-vncserver-upon-invocation-can-be-listed"><a href="#Supported-server-options-to-pass-to-vncserver-upon-invocation-can-be-listed" class="headerlink" title="Supported server options to pass to vncserver upon invocation can be listed"></a>Supported server options to pass to vncserver upon invocation can be listed</h2><h2 id="in-this-file-See-the-following-manpages-for-more-vncserver-1-Xvnc-1"><a href="#in-this-file-See-the-following-manpages-for-more-vncserver-1-Xvnc-1" class="headerlink" title="in this file. See the following manpages for more: vncserver(1) Xvnc(1)."></a>in this file. See the following manpages for more: vncserver(1) Xvnc(1).</h2><h2 id="Several-common-ones-are-shown-below-Uncomment-and-modify-to-your-liking"><a href="#Several-common-ones-are-shown-below-Uncomment-and-modify-to-your-liking" class="headerlink" title="Several common ones are shown below. Uncomment and modify to your liking."></a>Several common ones are shown below. Uncomment and modify to your liking.</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>geometry=1440x900<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">**geometry表示分辨率，这里配置的为1440x900**</span><br><span class="line"></span><br><span class="line">## 启动vnc</span><br><span class="line">* 在命令行中输入`vncserver`，得到端口号</span><br><span class="line">* 在Vnc Viewer中输入ip:端口号，然后输入密码即可显示vnc桌面![vnc_ip](http://ppf32wlz8.bkt.clouddn.com/2019_04_20/vnc_ip.png)**真正的端口号为5901，这里的1表示vnc的端口**</span><br><span class="line"></span><br><span class="line"># 免密登陆</span><br><span class="line">## ssh密钥的生成</span><br><span class="line">直接利用下述命令生成即可。</span><br><span class="line">``` bash</span><br><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+这个命令会在～/.ssh/下面生成<h2 id="密钥复制"><a href="#密钥复制" class="headerlink" title="密钥复制"></a>密钥复制</h2>利用下述命令将本地的公钥复制到远程的机器上，然后就可以免密登录，复制文件了。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id 本地文件 用户名@远程机器IP地址</span><br></pre></td></tr></table></figure>
+例如<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id ~/.ssh/id_rsa.pub admin@192.168.2.3</span><br><span class="line">ssh-copy-id admin@192.168.2.3</span><br></pre></td></tr></table></figure>
+然后文件会被复制到IP地址为192.168.2.3的机器的/home/admin/.ssh/authorized_key中</li>
+</ol>
+<p><em>注意：有的ssh-copy-id版本命令只需要用户名@远程机器IP地址即可</em></p>
+<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>git是一种分布式的版本控制系统，能够较为方便地对文件版本进行管理，简单来说是一个记录着文件修改情况的管理系统。</p>
+<h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><p>git的安装相对较为简单，大多数源都有收录，直接安装即可。<strong>Ubuntu系统可以使用apt-get install git安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S git</span><br></pre></td></tr></table></figure>
+<p>git安装完成后，需要进行用户配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;用户名&quot;</span></span><br><span class="line">git config --global user.mail <span class="string">&quot;邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>配置查看：<code>git config --list</code></p>
+<h1 id="虚拟内存配置"><a href="#虚拟内存配置" class="headerlink" title="虚拟内存配置"></a>虚拟内存配置</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>虚拟内存(Swap)是为了临时提高计算机的内存而做的处理，但是由于虚拟内存占用硬盘空间，所以，速度较慢，一般是内存占满了，系统才会自动征用虚拟内存。</p>
+<h2 id="虚拟内存的创建"><a href="#虚拟内存的创建" class="headerlink" title="虚拟内存的创建"></a>虚拟内存的创建</h2><p>首先使用dd命令创建一个虚拟内存文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/home/charo/swap bs=1M count=具体大小</span><br></pre></td></tr></table></figure>
+<p>其中，if(input_file)是为输入文件的绝对路径，of(output_file)命令为输出文件的绝对路径，bs是block_size大小，count是bs的个数。**/dev/zero文件是swap空间的一个模版文件，bs与count确定swap空间的大小**</p>
+<h2 id="虚拟内存文件的格式化"><a href="#虚拟内存文件的格式化" class="headerlink" title="虚拟内存文件的格式化"></a>虚拟内存文件的格式化</h2><p>这里就像格式化硬盘分区一样，对swap文件进行格式化，利用mkswap完成格式化操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /home/charo/swap</span><br></pre></td></tr></table></figure>
+<p>等待完成即可。</p>
+<h2 id="虚拟内存激活"><a href="#虚拟内存激活" class="headerlink" title="虚拟内存激活"></a>虚拟内存激活</h2><p>使用swapon命令可以启用swap文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /home/charo/swap</span><br></pre></td></tr></table></figure>
+<h2 id="虚拟内存开机启动-可选"><a href="#虚拟内存开机启动-可选" class="headerlink" title="虚拟内存开机启动(可选)"></a>虚拟内存开机启动(可选)</h2><p>在/etc/fstab文件中加入如下命令：<code>/home/charo/swap swap swap defaults 0 0</code>，然后重启即可</p>
+<h2 id="虚拟内存删除"><a href="#虚拟内存删除" class="headerlink" title="虚拟内存删除"></a>虚拟内存删除</h2><ol>
+<li>如果设置了开机启动，则需要去除/etc/fstab中的swap分区</li>
+<li>停用swap文件<code>swapoff /home/charo/swap</code></li>
+<li>将swap文件删除<code>rm -rf /home/charo/swap</code></li>
+</ol>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2019/12/05/conda-local-pkgs/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2019/04/20/linux-configuration/>http://example.com/2019/04/20/linux-configuration/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-17T14:32:19+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年11月17日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/12/05/conda-search-channel/">
-        Conda包搜索
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：在利用conda安装包的时候，经常会出现找不到包的情况，针对这种情况，可以根据下面的方案解决</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-12-05</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Conda/">Conda</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/12/05/conda-search-channel/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/11/03/icp/">
-        迭代最近点算法ICP
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：包含ICP的原理与实现</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-11-03</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/11/03/icp/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/11/02/exif/">
-        图像处理1-图像中的EXIF
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：主要介绍了相机所拍摄的图像的文件信息</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-11-02</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/11/02/exif/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/10/27/remote-clion/">
-        remote-clion
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>基本配置</p></a></div>
 
 
-
-
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/04/20/linux-configuration/&title=linux 基本配置 - Charo Blog&summary=简介：给出常规步骤，并在Arch Linux中进行测试系统：Arch Linux内容对象：服务器"
+          
+          >
+          
+            <img src="http://charo-blog.test.upcdn.net/basic/qq.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/basic/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2019/04/20/linux-configuration/&title=linux 基本配置 - Charo Blog&summary=简介：给出常规步骤，并在Arch Linux中进行测试系统：Arch Linux内容对象：服务器"
+          
+          >
+          
+            <img src="http://charo-blog.test.upcdn.net/basic/qzone.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/basic/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/04/20/linux-configuration/&title=linux 基本配置 - Charo Blog&summary=简介：给出常规步骤，并在Arch Linux中进行测试系统：Arch Linux内容对象：服务器"
+          
+          >
+          
+            <img src="http://charo-blog.test.upcdn.net/basic/weibo.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/basic/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-10-27</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/10/27/remote-clion/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/20/camera-matrix/">
-        相机相关的矩阵及理解
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
 
-矩阵类型内参矩阵——表示从相机坐标系到图像坐标系外参矩阵——外参矩阵是世界坐标系到相机坐标系的变换本质矩阵(本征矩阵)E——描述了空间中的点在两个坐标系中的坐标对应的关系基础矩阵F——描述了空间中的点在两个像平面中的坐标对应的关系单应矩阵H——描述物体在世界坐标系和像素坐标系之间的位置映射关系
-单应矩阵H我们在这里引入一个新的概念：单应性（Homography）变换。可以简单的理解为它用...
+
+        
       
-    
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-20</time>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/2019/09/20/camera-matrix/'>
-            阅读全文
-          </a>
-        </div>
+        <a class='prev' href='/2019/04/22/server-command/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>服务器常用命令</p>
+          <p class='content'>内容：与服务器交互的常用命令
+
+
+复制命令scp复制文件scp upload_file user_name@ip:target_dirupload_file: 要上传的文件user_name: ...</p>
+        </a>
+      
+      
+        <a class='next' href='/2018/03/20/macOS-tools/'>
+          <p class='title'>macOS常用工具安装与使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>系统：macOS简介：记录一些常用的MacOS工具
+
+
+包管理工具简介Homebrew是macOS平台的一款包管理工具，具有安装、卸载、环境配置等功能，类似于arch Linux中的pacman...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/19/pycharm-shortcutkey/">
-        pycharm-shortcutkey
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-
-代码折叠cmd + shift + +cmd + shift + -
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-19</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/09/19/pycharm-shortcutkey/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/19/c-basic-private/">
-        c++-basic-private
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
+  </article>
 
 
-c++函数PatchMatchController::PatchMatchController(const PatchMatchOptions&amp; options,                                           const std::string&amp; workspace_path,                            ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-19</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/09/19/c-basic-private/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/19/regretion/">
-        regretion
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
 
 
-这一选择取决于你的类别之间是否互斥，例如，如果你有四个类别的音乐，分别为：古典音乐、乡村音乐、摇滚乐和爵士乐，那么你可以假设每个训练样本只会被打上一个标签（即：一首歌只能属于这四种音乐类型的其中一种），此时你应该使用类别数 k = 4 的softmax回归。（如果在你的数据集中，有的歌曲不属于以上四类的其中任何一类，那么你可以添加一个“其他类”，并将类别数 k 设为5。）如果你的四个类...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-19</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/09/19/regretion/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/19/one-hot/">
-        编码
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：经常看到one-hot编码，所以集中解释下</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-19</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/09/19/one-hot/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 3
-        </p>
-        
-          <a class="next" rel="next" href="/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
 
 
 </div>
@@ -1021,98 +787,28 @@ c++函数PatchMatchController::PatchMatchController(const PatchMatchOptions&amp;
   
     
     
+
+
+
   
 
-  <section class="widget category shadow desktop">
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Conda/" href="/categories/Conda/"
-            id="categoriesConda"
-            ><div class='name'>Conda</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/English/" href="/categories/English/"
-            id="categoriesEnglish"
-            ><div class='name'>English</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/English/verb/" href="/categories/English/verb/"
-            id="categoriesEnglishverb"
-            ><div class='name'>verb</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Python/" href="/categories/Python/"
-            id="categoriesPython"
-            ><div class='name'>Python</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%8D%9A%E5%AE%A2/" href="/categories/%E5%8D%9A%E5%AE%A2/"
-            id="categoriesE58D9AE5AEA2"
-            ><div class='name'>博客</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B8B8E794A8E5B7A5E585B7"
-            ><div class='name'>常用工具</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"
-            id="categoriesE7AE97E6B395"
-            ><div class='name'>算法</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%AE%97%E6%B3%95/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" href="/categories/%E7%AE%97%E6%B3%95/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/"
-            id="categoriesE7AE97E6B395E4B889E7BBB4E9878DE5BBBA"
-            ><div class='name'>三维重建</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" href="/categories/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE7AE97E6B395E6B7B1E5BAA6E5ADA6E4B9A0"
-            ><div class='name'>深度学习</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%B7%AF%E7%94%B1%E5%99%A8/" href="/categories/%E8%B7%AF%E7%94%B1%E5%99%A8/"
-            id="categoriesE8B7AFE794B1E599A8"
-            ><div class='name'>路由器</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/C/" style="font-size: 14px; color: #999">C++</a> <a href="/tags/Conda/" style="font-size: 17.33px; color: #828282">Conda</a> <a href="/tags/English/" style="font-size: 14px; color: #999">English</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Linux/" style="font-size: 17.33px; color: #828282">Linux</a> <a href="/tags/Python/" style="font-size: 20.67px; color: #6c6c6c">Python</a> <a href="/tags/Pytorch/" style="font-size: 14px; color: #999">Pytorch</a> <a href="/tags/macOS/" style="font-size: 14px; color: #999">macOS</a> <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 14px; color: #999">三维重建</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px; color: #999">博客</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 17.33px; color: #828282">图像处理</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" style="font-size: 17.33px; color: #828282">基本配置</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 20.67px; color: #6c6c6c">基础知识</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 17.33px; color: #828282">常用命令</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">常用工具</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #999">服务器</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/%E6%A2%85%E6%9E%97/" style="font-size: 14px; color: #999">梅林</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px; color: #6c6c6c">深度学习</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 17.33px; color: #828282">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 24px; color: #555">算法</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85TigerVNC"><span class="toc-number">1.</span> <span class="toc-text">安装TigerVNC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96vnc"><span class="toc-number">2.</span> <span class="toc-text">初始化vnc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">修改启动文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Supported-server-options-to-pass-to-vncserver-upon-invocation-can-be-listed"><span class="toc-number">4.</span> <span class="toc-text">Supported server options to pass to vncserver upon invocation can be listed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#in-this-file-See-the-following-manpages-for-more-vncserver-1-Xvnc-1"><span class="toc-number">5.</span> <span class="toc-text">in this file. See the following manpages for more: vncserver(1) Xvnc(1).</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Several-common-ones-are-shown-below-Uncomment-and-modify-to-your-liking"><span class="toc-number">6.</span> <span class="toc-text">Several common ones are shown below. Uncomment and modify to your liking.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E9%92%A5%E5%A4%8D%E5%88%B6"><span class="toc-number">8.</span> <span class="toc-text">密钥复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">9.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">10.</span> <span class="toc-text">安装与配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">11.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="toc-number">12.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">13.</span> <span class="toc-text">虚拟内存的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E6%96%87%E4%BB%B6%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">14.</span> <span class="toc-text">虚拟内存文件的格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E6%BF%80%E6%B4%BB"><span class="toc-number">15.</span> <span class="toc-text">虚拟内存激活</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8-%E5%8F%AF%E9%80%89"><span class="toc-number">16.</span> <span class="toc-text">虚拟内存开机启动(可选)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%88%A0%E9%99%A4"><span class="toc-number">17.</span> <span class="toc-text">虚拟内存删除</span></a></li></ol>
     </div>
   </section>
 
@@ -1130,21 +826,21 @@ c++函数PatchMatchController::PatchMatchController(const PatchMatchOptions&amp;
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="linux 基本配置";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="full";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>

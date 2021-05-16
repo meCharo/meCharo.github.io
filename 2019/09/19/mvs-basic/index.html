@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -26,9 +22,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Charo Blog</title>
+  <title>mvs基础 - Charo Blog</title>
+  
+    <meta name="keywords" content="算法,三维重建">
   
 
+  
+    <meta name="description" content="简介：从整体上分析MVS方案的优与劣">
   
 
   <!-- feed -->
@@ -106,7 +106,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -345,7 +345,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -390,7 +390,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 </div>
 
-          <div id="scroll-down" style="display: ;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
@@ -401,547 +401,286 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
+    
+      <h1 class="title">
+        mvs基础
+      </h1>
+      <div class='new-meta-box'>
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/12/05/conda-local-pkgs/">
-        Conda本地镜像
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：有的时候网络不好，没有办法直接利用conda install安装，或者清华源中没有的包，且conda install经常失败，这个时候需要在本地制作conda镜像</p>
-    
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="sep"></span><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2019-12-05</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年9月19日</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Conda/">Conda</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="mvs基础" data-path="/2019/09/19/mvs-basic/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>简介：从整体上分析MVS方案的优与劣</p>
+<span id="more"></span>
+
+<h1 id="产生空洞的原因"><a href="#产生空洞的原因" class="headerlink" title="产生空洞的原因"></a>产生空洞的原因</h1><p>MVS方案的传统算法之所以容易出现空洞，主要原因是特征点分布不均匀，因此从特征点进行扩散的时候，就会导致部分点无法被扩散到，导致没有重建该部分区域。照片质量不佳的时候也会出现空洞，也是因为这种情况下，没有办法很好地提取特征。</p>
+<h1 id="MVS分类"><a href="#MVS分类" class="headerlink" title="MVS分类"></a>MVS分类</h1><p>根据 S.Seitz[1]的分类方法，可以将多视图立体匹配的三维重建方法分为以下四类：<br>1）运用表面演化的方法<br>一般利用网格进行表面重构的方法叫做基于表面演化的方法。该方法采用的表面网格可以是三角形或者其他形状。初始的网格可以通过包围盒或者可视凸壳等获得。获取了初始结构以后再依据不同的准则收缩原始结构，从而得到目标的三维模型表面。由于收缩演化过程可能会造成栅格参数的自相交或者网格的拓扑结构变化，对此，Pons et al[2]等人提出了基于水平集的改进方法。<br>2) 运用体素的方法<br>体素类似平面图像上的像素，是三维空间分割的最小单位，这种方法先初始化了一个大体素的集合，然后依据不同的算法，按照不同的顺序遍历体素清除不符合要求的体素，保留的体素就是三维重建的最终模型。早期基于体素的方法都是基于颜色 和空间雕刻等方法实现的。由于早期方法在三维重建精确度水平比较低。G. Vogiatzis提出了通过图割的方法。图割方法的优点是对遮挡物具有很好的鲁棒性，缺点是由于体素结构不具有自适应性，还是无法得到高精度的重建结果。<br>3) 运用深度融合的方法<br>运用深度融合的方法以主要包含两个步骤：一是获得深度图：二是融合深度图得到三维重建模型。深度图中的每一个像素点的像素值都是依据真实空间点距离照相机的距离而计算出来的。</p>
+<h1 id="朗伯反射曲面"><a href="#朗伯反射曲面" class="headerlink" title="朗伯反射曲面"></a>朗伯反射曲面</h1><p>针对朗伯反射曲面，可以使用光度立体重建法。这种方法先采集到多幅灰度图像在不同光照条件下的物体表面法线分布。再结合初始边界或者边界条件，就可以进行三维重建。Carlos Hernandez“等人就运用该思想出了一种三维重建的方法。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1] A Comparison and Evaluation of Multi-View Stereo Reconstruction Algorithms<br>[2] Multi-View Stereo Reconstruction and Scene Flow Estimation with a Global Image-Based Matching Score</p>
+<p>本文重点参考了《基于多视点图像三维重建算法的优化技术_姜宇航》</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2019/12/05/conda-local-pkgs/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2019/09/19/mvs-basic/>http://example.com/2019/09/19/mvs-basic/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-19T09:21:57+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2019年9月19日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/12/05/conda-search-channel/">
-        Conda包搜索
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：在利用conda安装包的时候，经常会出现找不到包的情况，针对这种情况，可以根据下面的方案解决</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-12-05</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Conda/">Conda</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/12/05/conda-search-channel/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/11/03/icp/">
-        迭代最近点算法ICP
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：包含ICP的原理与实现</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-11-03</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/11/03/icp/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/11/02/exif/">
-        图像处理1-图像中的EXIF
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：主要介绍了相机所拍摄的图像的文件信息</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-11-02</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/11/02/exif/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/10/27/remote-clion/">
-        remote-clion
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>算法</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>三维重建</p></a></div>
 
 
-
-
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/09/19/mvs-basic/&title=mvs基础 - Charo Blog&summary=简介：从整体上分析MVS方案的优与劣"
+          
+          >
+          
+            <img src="http://charo-blog.test.upcdn.net/basic/qq.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/basic/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2019/09/19/mvs-basic/&title=mvs基础 - Charo Blog&summary=简介：从整体上分析MVS方案的优与劣"
+          
+          >
+          
+            <img src="http://charo-blog.test.upcdn.net/basic/qzone.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/basic/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/09/19/mvs-basic/&title=mvs基础 - Charo Blog&summary=简介：从整体上分析MVS方案的优与劣"
+          
+          >
+          
+            <img src="http://charo-blog.test.upcdn.net/basic/weibo.png" class="lazyload" data-srcset="http://charo-blog.test.upcdn.net/basic/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-10-27</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/10/27/remote-clion/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/20/camera-matrix/">
-        相机相关的矩阵及理解
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
 
-矩阵类型内参矩阵——表示从相机坐标系到图像坐标系外参矩阵——外参矩阵是世界坐标系到相机坐标系的变换本质矩阵(本征矩阵)E——描述了空间中的点在两个坐标系中的坐标对应的关系基础矩阵F——描述了空间中的点在两个像平面中的坐标对应的关系单应矩阵H——描述物体在世界坐标系和像素坐标系之间的位置映射关系
-单应矩阵H我们在这里引入一个新的概念：单应性（Homography）变换。可以简单的理解为它用...
+
+        
       
-    
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-20</time>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/2019/09/20/camera-matrix/'>
-            阅读全文
-          </a>
-        </div>
+        <a class='prev' href='/2019/09/19/one-hot/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>编码</p>
+          <p class='content'>简介：经常看到one-hot编码，所以集中解释下
+
+
+介绍One-Hot 编码是分类变量作为二进制向量的表示。这首先要求将分类值映射到整数值。然后，每个整数值被表示为二进制向量，除了整数的索引之...</p>
+        </a>
+      
+      
+        <a class='next' href='/2019/09/19/softmax/'>
+          <p class='title'>softmax<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>简介：对softmax进行介绍与推导
+
+
+</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/19/pycharm-shortcutkey/">
-        pycharm-shortcutkey
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-
-代码折叠cmd + shift + +cmd + shift + -
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-19</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/09/19/pycharm-shortcutkey/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/19/c-basic-private/">
-        c++-basic-private
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
+  </article>
 
 
-c++函数PatchMatchController::PatchMatchController(const PatchMatchOptions&amp; options,                                           const std::string&amp; workspace_path,                            ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-19</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/09/19/c-basic-private/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/19/regretion/">
-        regretion
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
 
 
-这一选择取决于你的类别之间是否互斥，例如，如果你有四个类别的音乐，分别为：古典音乐、乡村音乐、摇滚乐和爵士乐，那么你可以假设每个训练样本只会被打上一个标签（即：一首歌只能属于这四种音乐类型的其中一种），此时你应该使用类别数 k = 4 的softmax回归。（如果在你的数据集中，有的歌曲不属于以上四类的其中任何一类，那么你可以添加一个“其他类”，并将类别数 k 设为5。）如果你的四个类...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-19</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/09/19/regretion/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/09/19/one-hot/">
-        编码
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>简介：经常看到one-hot编码，所以集中解释下</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-09-19</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/09/19/one-hot/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 3
-        </p>
-        
-          <a class="next" rel="next" href="/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
 
 
 </div>
@@ -1021,98 +760,28 @@ c++函数PatchMatchController::PatchMatchController(const PatchMatchOptions&amp;
   
     
     
+
+
+
   
 
-  <section class="widget category shadow desktop">
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
         
-          <li><a class="flat-box"
-            title="/categories/Conda/" href="/categories/Conda/"
-            id="categoriesConda"
-            ><div class='name'>Conda</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/English/" href="/categories/English/"
-            id="categoriesEnglish"
-            ><div class='name'>English</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/English/verb/" href="/categories/English/verb/"
-            id="categoriesEnglishverb"
-            ><div class='name'>verb</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Python/" href="/categories/Python/"
-            id="categoriesPython"
-            ><div class='name'>Python</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%8D%9A%E5%AE%A2/" href="/categories/%E5%8D%9A%E5%AE%A2/"
-            id="categoriesE58D9AE5AEA2"
-            ><div class='name'>博客</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B8B8E794A8E5B7A5E585B7"
-            ><div class='name'>常用工具</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"
-            id="categoriesE7AE97E6B395"
-            ><div class='name'>算法</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%AE%97%E6%B3%95/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" href="/categories/%E7%AE%97%E6%B3%95/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/"
-            id="categoriesE7AE97E6B395E4B889E7BBB4E9878DE5BBBA"
-            ><div class='name'>三维重建</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" href="/categories/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE7AE97E6B395E6B7B1E5BAA6E5ADA6E4B9A0"
-            ><div class='name'>深度学习</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%B7%AF%E7%94%B1%E5%99%A8/" href="/categories/%E8%B7%AF%E7%94%B1%E5%99%A8/"
-            id="categoriesE8B7AFE794B1E599A8"
-            ><div class='name'>路由器</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/C/" style="font-size: 14px; color: #999">C++</a> <a href="/tags/Conda/" style="font-size: 17.33px; color: #828282">Conda</a> <a href="/tags/English/" style="font-size: 14px; color: #999">English</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Linux/" style="font-size: 17.33px; color: #828282">Linux</a> <a href="/tags/Python/" style="font-size: 20.67px; color: #6c6c6c">Python</a> <a href="/tags/Pytorch/" style="font-size: 14px; color: #999">Pytorch</a> <a href="/tags/macOS/" style="font-size: 14px; color: #999">macOS</a> <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 14px; color: #999">三维重建</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px; color: #999">博客</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 17.33px; color: #828282">图像处理</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" style="font-size: 17.33px; color: #828282">基本配置</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 20.67px; color: #6c6c6c">基础知识</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 17.33px; color: #828282">常用命令</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">常用工具</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #999">服务器</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/%E6%A2%85%E6%9E%97/" style="font-size: 14px; color: #999">梅林</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px; color: #6c6c6c">深度学习</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 17.33px; color: #828282">神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 24px; color: #555">算法</a>
     </div>
   </section>
 
@@ -1130,21 +799,21 @@ c++函数PatchMatchController::PatchMatchController(const PatchMatchOptions&amp;
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="mvs基础";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="full";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
