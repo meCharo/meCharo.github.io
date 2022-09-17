@@ -265,103 +265,6 @@ button {
   overflow: hidden;
   margin-bottom: -100px;
 }
-.cover-wrapper .cover-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-}
-.cover-wrapper .cover-bg.lazyload:not(.loaded) {
-  opacity: 0;
-  -webkit-opacity: 0;
-  -moz-opacity: 0;
-}
-.cover-wrapper .cover-bg.lazyload.loaded {
-  animation-delay: 0s;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-  animation-name: fadeIn;
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -khtml-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
 .cover-wrapper .cover-body {
   z-index: 1;
   position: relative;
@@ -711,120 +614,221 @@ button {
   -moz-opacity: 1;
   border-bottom: 2px solid var(--color-site-inner);
 }
-.cover-wrapper.dock .menu,
-.cover-wrapper.featured .menu,
-.cover-wrapper.focus .menu {
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-}
-.cover-wrapper.dock .menu .list-h a,
-.cover-wrapper.featured .menu .list-h a,
-.cover-wrapper.focus .menu .list-h a {
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  align-items: center;
-  padding: 12px;
-  line-height: 24px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-bottom: none;
-  text-align: center;
-  align-content: flex-end;
-  color: rgba(68,68,68,0.7);
-  font-size: 1.5rem;
-}
-@media screen and (max-width: 500px) {
-  .cover-wrapper.dock .menu .list-h a,
-  .cover-wrapper.featured .menu .list-h a,
-  .cover-wrapper.focus .menu .list-h a {
-    padding: 12px 8px;
-  }
-}
-.cover-wrapper.dock .menu .list-h a i,
-.cover-wrapper.featured .menu .list-h a i,
-.cover-wrapper.focus .menu .list-h a i {
-  margin: 8px;
-}
-.cover-wrapper.dock .menu .list-h a p,
-.cover-wrapper.featured .menu .list-h a p,
-.cover-wrapper.focus .menu .list-h a p {
-  font-size: 0.875rem;
-}
-.cover-wrapper.dock .menu .list-h a.active,
-.cover-wrapper.featured .menu .list-h a.active,
-.cover-wrapper.focus .menu .list-h a.active {
-  background: var(--color-card);
-  backdrop-filter: none;
-}
-.cover-wrapper.dock .menu .list-h a.active i,
-.cover-wrapper.featured .menu .list-h a.active i,
-.cover-wrapper.focus .menu .list-h a.active i,
-.cover-wrapper.dock .menu .list-h a.active i+p,
-.cover-wrapper.featured .menu .list-h a.active i+p,
-.cover-wrapper.focus .menu .list-h a.active i+p {
-  color: #3dd9b6;
-}
-.cover-wrapper.dock .menu .list-h a.active img+p,
-.cover-wrapper.featured .menu .list-h a.active img+p,
-.cover-wrapper.focus .menu .list-h a.active img+p {
-  color: var(--color-text);
-}
-.cover-wrapper.dock .menu .list-h a:hover,
-.cover-wrapper.featured .menu .list-h a:hover,
-.cover-wrapper.focus .menu .list-h a:hover {
-  background: var(--color-card);
-}
-.cover-wrapper.dock .top {
-  margin-bottom: 48px;
-}
-.cover-wrapper.dock .menu {
-  background: rgba(255,255,255,0.5);
+.cover-wrapper #parallax-window {
   position: absolute;
-  bottom: 0;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
 }
-.cover-wrapper.dock .menu .list-h {
-  flex-wrap: nowrap;
-  -webkit-flex-wrap: nowrap;
-  -khtml-flex-wrap: nowrap;
-  -moz-flex-wrap: nowrap;
-  -o-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  margin: 4px;
+.parallax-mirror {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
 }
-.cover-wrapper.dock .menu .list-h a+a {
-  margin-left: 4px;
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+  :root:not([color-scheme]) {
+    --color-site-body: #121212;
+    --color-read-bkg: #1f1f1f;
+    --color-read-post: #262626;
+    --color-site-bg: #1f1f1f;
+    --color-site-inner: rgba(238,238,238,0.871);
+    --color-site-footer: rgba(170,170,170,0.871);
+    --color-card: #262626;
+    --color-text: rgba(238,238,238,0.871);
+    --color-block: #434343;
+    --color-codeblock: #1f1f1f;
+    --color-inlinecode: #d56d28;
+    --color-h1: rgba(255,255,255,0.871);
+    --color-h2: rgba(255,255,255,0.871);
+    --color-h3: rgba(255,255,255,0.6);
+    --color-h4: rgba(255,255,255,0.6);
+    --color-h5: rgba(255,255,255,0.6);
+    --color-h6: rgba(255,255,255,0.6);
+    --color-p: rgba(217,217,217,0.871);
+    --color-list: rgba(217,217,217,0.871);
+    --color-list-hl: #63e0c4;
+    --color-meta: rgba(191,191,191,0.871);
+    --color-link: rgba(191,191,191,0.871);
+    --color-copyright-bkg: #21252b;
+  }
+  :root:not([color-scheme]) img {
+    filter: brightness(70%) !important;
+  }
+  :root:not([color-scheme]) .blur {
+    background: rgba(31,31,31,0.9) !important;
+  }
+  :root:not([color-scheme]) .white-box.blur {
+    background: rgba(38,38,38,0.9) !important;
+  }
+  :root:not([color-scheme]) .nav-main .u-search-input {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a:hover {
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) .article blockquote {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .article-title a {
+    color: var(--color-h1) !important;
+  }
+  :root:not([color-scheme]) details>summary {
+    color: var(--color-p) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) details {
+    border: 1px solid var(--color-site-bg) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal,
+  :root:not([color-scheme]) #u-search .modal-header,
+  :root:not([color-scheme]) #u-search .modal-body {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal-body .modal-results .result:hover {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .u-search-input:hover {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .u-search-input:focus {
+    background: var(--color-site-body) !important;
+  }
+}
+[color-scheme='dark'] {
+  --color-site-body: #121212;
+  --color-read-bkg: #1f1f1f;
+  --color-read-post: #262626;
+  --color-site-bg: #1f1f1f;
+  --color-site-inner: rgba(238,238,238,0.871);
+  --color-site-footer: rgba(170,170,170,0.871);
+  --color-card: #262626;
+  --color-text: rgba(238,238,238,0.871);
+  --color-block: #434343;
+  --color-codeblock: #1f1f1f;
+  --color-inlinecode: #d56d28;
+  --color-h1: rgba(255,255,255,0.871);
+  --color-h2: rgba(255,255,255,0.871);
+  --color-h3: rgba(255,255,255,0.6);
+  --color-h4: rgba(255,255,255,0.6);
+  --color-h5: rgba(255,255,255,0.6);
+  --color-h6: rgba(255,255,255,0.6);
+  --color-p: rgba(217,217,217,0.871);
+  --color-list: rgba(217,217,217,0.871);
+  --color-list-hl: #63e0c4;
+  --color-meta: rgba(191,191,191,0.871);
+  --color-link: rgba(191,191,191,0.871);
+  --color-copyright-bkg: #21252b;
+}
+[color-scheme='dark'] img {
+  filter: brightness(70%) !important;
+}
+[color-scheme='dark'] .blur {
+  background: rgba(31,31,31,0.9) !important;
+}
+[color-scheme='dark'] .white-box.blur {
+  background: rgba(38,38,38,0.9) !important;
+}
+[color-scheme='dark'] .nav-main .u-search-input {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a:hover {
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] .article blockquote {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .article-title a {
+  color: var(--color-h1) !important;
+}
+[color-scheme='dark'] details>summary {
+  color: var(--color-p) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] details {
+  border: 1px solid var(--color-site-bg) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] #u-search .modal,
+[color-scheme='dark'] #u-search .modal-header,
+[color-scheme='dark'] #u-search .modal-body {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #u-search .modal-body .modal-results .result:hover {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .u-search-input:hover {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .u-search-input:focus {
+  background: var(--color-site-body) !important;
 }
 @media screen and (max-width: 500px) {
-  .cover-wrapper.dock .menu .list-h {
-    overflow-x: scroll;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar {
-    height: 0;
-    width: 0;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-track-piece {
-    background: transparent;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb {
-    background: #3dd9b6;
-    cursor: pointer;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb:hover {
-    background: #ff5722;
-  }
-}
-@supports (backdrop-filter: blur(20px)) {
-  .cover-wrapper.dock .menu {
-    background: rgba(255,255,255,0.5);
-    backdrop-filter: saturate(200%) blur(20px);
+  [color-scheme='dark'] .l_header .m_search {
+    background: var(--color-site-bg) !important;
   }
 }
 @font-face {
@@ -1663,10 +1667,21 @@ ul.list-v >li>a:hover {
     padding: 0px;
   }
 }
+@media screen and (prefers-color-scheme: dark) and (max-width: 500px) {
+  .l_header .m_search {
+    background: var(--color-site-bg) !important;
+  }
+}
 
   </style>
   <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
   <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+    <script>
+      let userColorScheme=localStorage.getItem("color-scheme")
+      if(userColorScheme){
+        document.documentElement.setAttribute("color-scheme", userColorScheme);
+      }
+    </script>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1740,10 +1755,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1663372128734),
+    lastupdate: new Date(1663379013063),
     sidebar: {
-      for_page: ["blogger","category","tagcloud","donate"],
-      for_post: ["toc"],
+      for_page: ["blogger","booklist","toc"],
+      for_post: ["blogger","toc"],
       webinfo: {
         lastupd: {
           enable: true,
@@ -2175,9 +2190,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
         <a class="title flat-box" target="_self" href='/'>
           
-            <img no-lazy class='logo' src='https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/Logo-NavBar@3x.png'/>
           
           
+            Charo Blog
           
         </a>
       
@@ -2191,13 +2206,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="博客"
+                href="/" title="主页"
                   
                   
                   
                     active-action="action-home"
                   >
-                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                  <i class='fas fa-rss fa-fw'></i>主页
                 </a>
                 
               </li>
@@ -2214,7 +2229,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     active-action="action-categories"
                   >
-                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                  <i class='fas fa-folder-open fa-fw'></i>分类
                 </a>
                 
               </li>
@@ -2231,7 +2246,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     active-action="action-tags"
                   >
-                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                  <i class='fas fa-tags fa-fw'></i>标签
                 </a>
                 
               </li>
@@ -2248,24 +2263,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     active-action="action-archives"
                   >
-                  <i class='fa-solid fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
-                  
-                  
-                  
-                    active-action="action-friends"
-                  >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
+                  <i class='fas fa-archive fa-fw'></i>归档
                 </a>
                 
               </li>
@@ -2282,10 +2280,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     active-action="action-about"
                   >
-                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                  <i class='fas fa-info-circle fa-fw'></i>关于
                 </a>
                 
               </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
             
           
           
@@ -2312,13 +2320,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="博客"
+                href="/" title="主页"
                   
                   
                   
                     active-action="action-home"
                   >
-                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                  <i class='fas fa-rss fa-fw'></i>主页
                 </a>
                 
               </li>
@@ -2335,7 +2343,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     active-action="action-categories"
                   >
-                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                  <i class='fas fa-folder-open fa-fw'></i>分类
                 </a>
                 
               </li>
@@ -2352,7 +2360,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     active-action="action-tags"
                   >
-                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                  <i class='fas fa-tags fa-fw'></i>标签
                 </a>
                 
               </li>
@@ -2369,24 +2377,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     active-action="action-archives"
                   >
-                  <i class='fa-solid fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
-                  
-                  
-                  
-                    active-action="action-friends"
-                  >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
+                  <i class='fas fa-archive fa-fw'></i>归档
                 </a>
                 
               </li>
@@ -2403,10 +2394,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     active-action="action-about"
                   >
-                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                  <i class='fas fa-info-circle fa-fw'></i>关于
                 </a>
                 
               </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
             
           
             
@@ -2427,63 +2428,43 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="half" class='cover-wrapper  dock' style="display: ;">
+      <div id="half" class='cover-wrapper  search' style="display: ;">
         
-  <div class='cover-bg lazyload placeholder' data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
+  <div id="parallax-window"></div>
 
 <div class='cover-body'>
   <div class='top'>
     
     
-      <p class="title">Volantis</p>
+      <p class="title">Charo Blog</p>
     
     
   </div>
   <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="Please fill something" />
+          <i class="icon fa-solid fa-search fa-fw"></i>
+        </form>
+      </div>
+    
     <div class='menu navigation'>
       <div class='list-h'>
         
-          
-            <a href="/v4/getting-started/"
-              
-              
-              active-action="action-v4getting-started">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg'><p>文档</p>
-            </a>
-          
-            <a href="/faqs/"
-              
-              
-              active-action="action-faqs">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg'><p>帮助</p>
-            </a>
-          
-            <a href="/examples/"
-              
-              
-              active-action="action-examples">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg'><p>示例</p>
-            </a>
-          
-            <a href="/contributors/"
-              
-              
-              active-action="action-contributors">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg'><p>社区</p>
-            </a>
           
             <a href="/archives/"
               
               
               active-action="action-archives">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg'><p>博客</p>
+              <p>文档</p>
             </a>
           
-            <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/"
+            <a target="_blank" rel="noopener" href="https://github.com/meCharo/"
               
               
-              active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg'><p>源码</p>
+              active-action="action-https:githubcommeCharo">
+              <p>项目</p>
             </a>
           
         
@@ -2510,6 +2491,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
+          
+        
       
     
     
@@ -2517,7 +2502,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/17/hello-world/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/17/hard-disk-dormancy/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Charo Blog">
   </span>
@@ -2535,29 +2520,160 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/09/17/hello-world/"  itemprop="url">
-        Hello World
+      <a href="/2022/09/17/hard-disk-dormancy/"  itemprop="url">
+        Linux机械硬盘休眠
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
-      
+      <p>内容：Linux机械硬盘休眠软件<br>系统：Archlinux</p>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-09-17T07:39:50+08:00">2022-09-17</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-09-17T06:23:57+08:00">2022-09-17</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Linux/">Linux</a><span class="sep"></span><a class="category-link" href="/categories/Linux/Archlinux/">Archlinux</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Linux/" itemprop="url"><span itemprop="name">Linux</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Linux/Archlinux/" itemprop="url"><span itemprop="name">Archlinux</span></a>
+            </span>
+          
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/09/17/hello-world/' itemprop="url">
+          <a class='readmore' href='/2022/09/17/hard-disk-dormancy/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/22/archlinuxarm_raspberrypi/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Charo Blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Charo Blog">
+    <meta itemprop="description" content="日常笔记">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/03/22/archlinuxarm_raspberrypi/"  itemprop="url">
+        树莓派U盘安装Archlinux Arm
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>内容：树莓派U盘安装Archlinux Arm<br>型号：Raspberry Pi 3b</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-03-22T10:15:07+08:00">2022-03-22</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Linux/">Linux</a><span class="sep"></span><a class="category-link" href="/categories/Linux/Archlinux/">Archlinux</a><span class="sep"></span><a class="category-link" href="/categories/Linux/Archlinux/Raspberry-Pi/">Raspberry Pi</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Linux/" itemprop="url"><span itemprop="name">Linux</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Linux/Archlinux/" itemprop="url"><span itemprop="name">Archlinux</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Linux/Archlinux/Raspberry-Pi/" itemprop="url"><span itemprop="name">Raspberry Pi</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/03/22/archlinuxarm_raspberrypi/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/07/discontent-apple-product/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Charo Blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Charo Blog">
+    <meta itemprop="description" content="日常笔记">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/03/07/discontent-apple-product/"  itemprop="url">
+        苹果产品更换期待
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p>内容：在设备够用的情况下, 可以考虑更换设备的条件</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-03-07T18:34:35+08:00">2022-03-07</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/03/07/discontent-apple-product/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2591,17 +2707,16 @@ Qu...
     
       
         <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/Logo-NavBar@3x.png'/>
+          <img no-lazy src='http://charo-blog.test.upcdn.net/basic/profile.png'/>
         </a>
       
     
     
       <div class='text'>
         
+          <h2>Charo</h2>
         
         
-          <p><span id="jinrishici-sentence">Charo Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         
       </div>
     
@@ -2609,8 +2724,8 @@ Qu...
       <div class="social-wrapper">
         
           
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
+            <a href="https://weibo.com/mecharo"
+              class="social fab fa-weibo flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
               
@@ -2618,8 +2733,8 @@ Qu...
           
         
           
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
+            <a href="mailto:mail@charo.work"
+              class="social fas fa-envelope flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
               
@@ -2627,7 +2742,7 @@ Qu...
           
         
           
-            <a href="https://github.com/volantis-x/"
+            <a href="https://github.com/meCharo/"
               class="social fab fa-github flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -2636,8 +2751,8 @@ Qu...
           
         
           
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
+            <a href="https://music.163.com/#/user/home?id=103574079"
+              class="social fas fa-headphones-alt flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
               
@@ -2653,30 +2768,39 @@ Qu...
   
 
   
-    
-    
-      
-
-    
-  
 
   
     
     
       
-
     
-  
-
   
 
 
 <div class="widget-sticky pjax">
 
+  
+  
+
+
+  <div class="">
+    <!-- pjax占位 -->
+  </div>
+
+  
+
 </div>
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -2829,6 +2953,122 @@ Qu...
 
 <!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
 
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "color-scheme";
+const rootElementDarkModeAttributeName = "color-scheme";
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+  getCustomDarkMode();
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+/**
+ * get target mode
+ */
+ const getCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  if(currentSetting=="dark"){
+    volantis.dark.mode="light";
+  }else{
+    volantis.dark.mode="dark";
+  }
+  // console.log(volantis.dark.mode)
+};
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+/**
+ * 暗黑模式触发器
+ */
+volantis.dark.toggle=()=>{
+  const mode = toggleCustomDarkMode();
+  applyCustomDarkModeSettings(mode);
+  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
+  volantis.dark.method.toggle.start();
+}
+/**
+ * bind event for toggle button
+ */
+
+function bindToggleButton() {
+  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
+  btn.forEach(function (e) {
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
+  })
+}
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", ()=>{
+  volantis.requestAnimationFrame(bindToggleButton)
+});
+volantis.pjax.push(bindToggleButton);
+
+const darkModelListeners={
+  dark:(mediaQueryList )=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "dark";
+    }
+    volantis.dark.method.toggle.start();
+  },
+  light:(mediaQueryList)=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "light";
+    }
+    volantis.dark.method.toggle.start();
+  }
+}
+window.matchMedia('(prefers-color-scheme: dark)').addListener(darkModelListeners.dark)
+window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListeners.light)
+</script>
+
+
 
 
 <script>
@@ -2911,55 +3151,6 @@ Qu...
 
 
 
-      <script>
-  volantis.layoutHelper("comments",`<div id="giscus_container"></div>`)
-
-  volantis.giscus = {};
-
-  function check_giscus() {
-    if (volantis.dark.mode === "dark") {
-      volantis.giscus.Theme = 'dark';
-    } else {
-      volantis.giscus.Theme = 'light';
-    }
-
-    return document.getElementById("giscus_container");
-  }
-
-  function pjax_giscus() {
-    const HEAD = check_giscus();
-    if (!HEAD) return;
-    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"}},pdata.commentConfig)
-    const script = document.createElement('script');
-    script.setAttribute('src', 'https://giscus.app/client.js');
-    Object.keys(cfg).forEach(k=>{
-      if (k != "theme") {
-        script.setAttribute('data-'+k, cfg[k]);
-      }
-    })
-    script.setAttribute('data-theme', volantis.giscus.Theme);
-    script.setAttribute('crossorigin', "anonymous");
-    HEAD.appendChild(script);
-  }
-
-  function dark_giscus() {
-    const HEAD = check_giscus();
-    if (!HEAD) return;
-
-    const message = {
-      setConfig: {
-        theme: volantis.giscus.Theme
-      }
-    };
-    const giscusIframe = document.querySelector('iframe.giscus-frame');
-    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-  }
-  pjax_giscus();
-  volantis.pjax.push(pjax_giscus);
-  volantis.dark.push(dark_giscus);
-</script>
-
-    
 
 
 
@@ -3047,6 +3238,59 @@ Qu...
 
 
 
+
+
+  <script>
+  let imgs = ["http://charo-blog.test.upcdn.net/basic/background.png"];
+  let index = 0;
+  let IntervalParallax = null;
+
+  function parallax(){
+    let ParallaxWindow = document.querySelector("#parallax-window");
+    
+      ParallaxWindow = document.querySelector("html");
+    
+    Parallax.window = ParallaxWindow;
+    Parallax.options.fade = 1500;
+    Parallax.cache = 1;
+    next_parallax();
+    Parallax.init();
+    if (imgs.length>1) {
+      IntervalParallax = setInterval(function () {
+        next_parallax();
+      }, '10000');
+    }
+  }
+
+  function next_parallax() {
+    if (typeof Parallax == "undefined") {
+      return
+    }
+    
+    if (imgs.length>=1) {
+      Parallax.options.src = imgs[index % imgs.length];
+      Parallax.start();
+      index++;
+      if (Parallax.cache) {
+        fetch(imgs[index % imgs.length] +"?t=" + new Date().getTime());
+        if (index == imgs.length) {
+          Parallax.cache = 0;
+        }
+      }
+    }
+  }
+  var runningOnBrowser = typeof window !== "undefined";
+  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+  if (!isBot) {
+    volantis.js('/js/plugins/parallax.js').then(()=>{
+      parallax()
+    })
+    volantis.pjax.send(()=>{
+      clearInterval(IntervalParallax)
+    },"clearIntervalParallax");
+    volantis.pjax.push(parallax);
+  }
+</script>
 
 
 
